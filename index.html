@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Project</title>
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <script src="libraries/p5.min.js"></script>
+    <script src="textMorph/modes/animationMode.js"></script>
+    <script src="textMorph/modes/transmorph.js"></script>
+    <script src="textMorph/modes/shapemorph.js"></script>
+    <script src="textMorph/modes/noise.js"></script>
+    <script src="textMorph/modes/horizontalTransmorph.js"></script>
+    <script src="textMorph/modes/verticalTransmorph.js"></script>
+    <script src="textMorph/modes/horizontalShapeMorph.js"></script>
+    <script src="textMorph/modes/defaultNoise.js"></script>
+    
+  </head>
+
+  <body class="cc-main-body">
+    <div class="cc-container-main">
+      <div class="cc-container-editor">
+        <div class="cc-editor-menu">
+          <div class="cc-editor-menu-item active" onclick="setMode('Textmode', this)">
+            Textmode
+          </div>
+          <div class="cc-editor-menu-item" onclick="setMode('Evolution', this)">
+            Evolution
+          </div>
+          <div class="cc-editor-menu-item" onclick="setMode('Noise', this)">
+            Noise
+          </div>
+        </div>
+
+        <div class="cc-editor-panel">
+          <div class="cc-editor-section">
+            <div class="cc-editor-head">
+              <h2>Text</h2>
+            </div>
+            <div class="cc-editor-item cc-editor-text">
+              <textarea type="text" rows="4" id="newText">Creative Coding</textarea>
+            </div>
+
+            <div class="cc-editor-head" id="mode-specific-param-head" style="display: none">
+                <h2>Mode Specific</h2>
+            </div>
+
+            <div class="cc-editor-items" id="mode-params-evolution" style="display: none">
+              <div class="cc-editor-item">
+                <label for="">Evolution</label> 
+                <div class="cc-editor-slider-container">
+                  <ul>
+                    <li></li><li></li><li></li><li></li><li></li><li></li><li></li>
+                  </ul>
+                  <input type="range" min="0" max="10" value="5" step="1" class="cc-editor-slider" id="shapeEvolveProgressSlider">
+                </div>
+              </div>
+            </div>
+                    
+
+            <div class="cc-editor-head">
+              <h2>Typography</h2>
+            </div>
+
+            <div class="cc-editor-items">
+              <div class="cc-editor-item">
+                <label for="">Font</label> 
+                  <!-- Slideshow container -->
+                  <div class="cc-editor-slide-container">
+
+                    <!-- Full-width slides/quotes -->
+                    <div class="cc-editor-item-slide-0" style="display: block">
+                      <p>Amatic</p>
+                    </div>
+                    <div class="cc-editor-item-slide-0" style="display: none">
+                      <p>Anton</p>
+                    </div>
+                    <div class="cc-editor-item-slide-0" style="display: none">
+                      <p>Crimson</p>
+                    </div>
+                    <div class="cc-editor-item-slide-0" style="display: none">
+                      <p>FlowCircular</p>
+                    </div>
+                    <div class="cc-editor-item-slide-0" style="display: none">
+                      <p>Lato Black</p>
+                    </div>
+                    <div class="cc-editor-item-slide-0" style="display: none">
+                      <p>Lato Thin</p>
+                    </div>
+                    <div class="cc-editor-item-slide-0" style="display: none">
+                      <p>Lobster</p>
+                    </div>
+                    <div class="cc-editor-item-slide-0" style="display: none">
+                      <p>NotoSerif Bold</p>
+                    </div>
+                    <div class="cc-editor-item-slide-0" style="display: none">
+                      <p>NotoSerif Italic</p>
+                    </div>
+                    <div class="cc-editor-item-slide-0" style="display: none">
+                      <p>Playfair Bold</p>
+                    </div>
+                    <div class="cc-editor-item-slide-0" style="display: none">
+                      <p>Playfair</p>
+                    </div>
+                    <div class="cc-editor-item-slide-0" style="display: none">
+                      <p>Raleway Bold</p>
+                    </div>
+                    <div class="cc-editor-item-slide-0" style="display: none">
+                      <p>Raleway EL</p>
+                    </div>
+                    <div class="cc-editor-item-slide-0" style="display: none">
+                      <p>Rubik Mono</p>
+                    </div>
+                    <div class="cc-editor-item-slide-0" style="display: none">
+                      <p>Special Elite</p>
+                    </div>
+                    <div class="cc-editor-item-slide-0" style="display: none">
+                      <p>Yeseva One</p>
+                    </div>
+
+                    <!-- Next/prev buttons -->
+                    <a class="prev" onclick="SlideSelect.prevSlide(0);">&#10094;</a>
+                    <a class="next" onclick="SlideSelect.nextSlide(0);">&#10095;</a>
+                  </div>
+              </div>
+  
+              <div class="cc-editor-item">
+                <label for="">Font size</label> 
+                <div class="cc-editor-slider-container">
+                  <ul>
+                    <li></li><li></li><li></li><li></li><li></li><li></li><li></li>
+                  </ul>
+                  <input type="range" min="0.1" max="1.9" value="1" step="0.1" class="cc-editor-slider" id="fontSizeSlider">
+                </div>
+              </div>
+
+              <div class="cc-editor-item">
+                <label for="">Text align</label> 
+                <div class="cc-editor-slide-container">
+
+                  <!-- Full-width slides/quotes -->
+                  <div class="cc-editor-item-slide-1" style="display: none">
+                    <p>Left</p>
+                  </div>
+
+                  <div class="cc-editor-item-slide-1" style="display: none">
+                    <p>Center</p>
+                  </div>
+
+                  <div class="cc-editor-item-slide-1" style="display: none">
+                    <p>Right</p>
+                  </div>
+
+                  <!-- Next/prev buttons -->
+                  <a class="prev" onclick="SlideSelect.prevSlide(1);">&#10094;</a>
+                  <a class="next" onclick="SlideSelect.nextSlide(1);">&#10095;</a>
+                </div>
+              </div>
+  
+              <div class="cc-editor-item">
+                <label for="">Letter spacing</label> 
+                <div class="cc-editor-slider-container">
+                  <ul>
+                    <li></li><li></li><li></li><li></li><li></li><li></li><li></li>
+                  </ul>
+                  <input type="range" min="0" max="1" value="0.5" step="0.05" class="cc-editor-slider" id="letterSpacingSlider">
+                </div>
+              </div>
+  
+              <div class="cc-editor-item">
+                <label for="">Line spacing</label> 
+                <div class="cc-editor-slider-container">
+                  <ul>
+                    <li></li><li></li><li></li><li></li><li></li><li></li><li></li>
+                  </ul>
+                  <input type="range" min="0" max="5" value="1" step="0.25" class="cc-editor-slider" id="lineSpacingSlider">
+                </div>
+              </div>
+
+              <div class="cc-editor-item">
+                <label for="">Line width</label> 
+                <div class="cc-editor-slider-container">
+                  <ul>
+                    <li></li><li></li><li></li><li></li><li></li><li></li><li></li>
+                  </ul>
+                  <input type="range" min="0.2" max="30" value="2" step="0.2" class="cc-editor-slider" id="lineWidthSlider">
+                </div>
+              </div>
+  
+              <div class="cc-editor-item">
+                <label for="">Text direction</label> 
+                <div class="cc-editor-slide-container">
+
+                  <!-- Full-width slides/quotes -->
+                  <div class="cc-editor-item-slide-2" style="display: none">
+                    <p>Left to Right</p>
+                  </div>
+
+                  <div class="cc-editor-item-slide-2" style="display: none">
+                    <p>Top to Bottom</p>
+                  </div>
+
+                  <!-- Next/prev buttons -->
+                  <a class="prev" onclick="SlideSelect.prevSlide(2);">&#10094;</a>
+                  <a class="next" onclick="SlideSelect.nextSlide(2);">&#10095;</a>
+                </div>
+              </div>  
+            </div>
+
+   
+
+            <div class="cc-editor-head">
+              <h2>Colors</h2>
+            </div>
+            <div class="cc-editor-item">
+              <label for="">Themes</label> 
+              <div class="cc-editor-slide-container">
+
+                <!-- Full-width slides/quotes -->
+                <div class="cc-editor-item-slide-3" style="display: none">
+                  <p>Light</p>
+                </div>
+
+                <div class="cc-editor-item-slide-3" style="display: none">
+                  <p>Dark</p>
+                </div>
+
+                <div class="cc-editor-item-slide-3" style="display: none">
+                  <p>Random</p>
+                </div>
+
+                <div class="cc-editor-item-slide-3" style="display: none">
+                  <p>Custom</p>
+                </div>
+
+                <!-- Next/prev buttons -->
+                <a class="prev" onclick="SlideSelect.prevSlide(3);">&#10094;</a>
+                <a class="next" onclick="SlideSelect.nextSlide(3);">&#10095;</a>
+              </div>
+            </div>
+
+            <div class="cc-editor-item">
+              <label for=""></label> 
+              <div class="cc-editor-colortab">
+                <div class="cc-editor-colorbox"></div>
+                <div class="cc-editor-colorbox"></div>
+                <div class="cc-editor-colorbox"></div>
+                <div class="cc-editor-colorbox"></div>
+                <div class="cc-editor-colorbox"></div>
+                <div class="cc-editor-colorbox"></div>
+
+              </div>
+            </div>
+
+
+
+            <div class="cc-editor-head">
+              <h2>Drawing Style</h2>
+            </div>
+            <div class="cc-editor-item">
+              <label for="">Opacity font</label> 
+              <div class="cc-editor-slider-container">
+                <ul>
+                  <li></li><li></li><li></li><li></li><li></li><li></li><li></li>
+                </ul>
+                <input type="range" min="0" max="255" value="100" step="1" class="cc-editor-slider" id="alphaMaxSlider">
+              </div>
+            </div>  
+
+            <div class="cc-editor-item">
+              <label for="">Opacity variation</label> 
+              <div class="cc-editor-slider-container">
+                <ul>
+                  <li></li><li></li><li></li><li></li><li></li><li></li><li></li>
+                </ul>
+                <input type="range" min="0.5" max="2" value="1" step="0.1" class="cc-editor-slider" id="alphaFadeSlider">
+              </div>
+            </div>  
+
+            <div class="cc-editor-item">
+              <label for="">Amount lines</label> 
+              <div class="cc-editor-slider-container">
+                <ul>
+                  <li></li><li></li><li></li><li></li><li></li><li></li><li></li>
+                </ul>
+                <input type="range" min="0.3" max="5" value="4" step="0.1" class="cc-editor-slider" id="lerpGrowthSlider">
+              </div>
+            </div>  
+
+            <div class="cc-editor-item">
+              <label for="">Letter randomness</label> 
+              <div class="cc-editor-slider-container">
+                <ul>
+                  <li></li><li></li><li></li><li></li><li></li><li></li><li></li>
+                </ul>
+                <input type="range" min="0" max="1" value="0" step="0.05" class="cc-editor-slider" id="letterNoiseSlider">
+              </div>
+            </div>  
+
+            <div class="cc-editor-item">
+              <label for="">Jiggle lines</label> 
+              <div class="cc-editor-slider-container">
+                <ul>
+                  <li></li><li></li><li></li><li></li><li></li><li></li><li></li>
+                </ul>
+                <input type="range" min="1" max="101" value="50" step="16.666" class="cc-editor-slider" id="">
+              </div>
+            </div>  
+
+          </div>
+        </div>
+
+        <div class="cc-editor-buttons">
+          <div class="cc-editor-button" onclick="showLoadingMessage();setTimeout(startDrawing,15);" id="startButton">
+            Start
+          </div>
+          <div class="cc-editor-button" onclick="resetDrawing();" id="resetButton">
+            Reset
+          </div>
+          <div class="cc-editor-button" onclick="setTimeout(downloadCanvas,10);" id="saveButton">
+            Save
+          </div>
+        </div>
+      </div>
+
+      <div class="cc-container-canvas">
+        <div id="canvasForHTML"></div>
+
+
+      </div>
+
+    </div>
+
+    <script src="textMorph/vars.js"></script>
+    <script src="textMorph.js"></script>
+    <script src="ui.js"></script>
+
+  </body>
+</html>

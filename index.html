@@ -17,7 +17,7 @@
     <script src="textMorph/modes/verticalTransmorph.js"></script>
     <script src="textMorph/modes/horizontalShapeMorph.js"></script>
     <script src="textMorph/modes/defaultNoise.js"></script>
-    
+    <script src="colorthemes.js"></script>
   </head>
 
   <body class="cc-main-body">
@@ -221,11 +221,11 @@
 
                 <!-- Full-width slides/quotes -->
                 <div class="cc-editor-item-slide-3" style="display: none">
-                  <p>Light</p>
+                  <p>Dark</p>
                 </div>
 
                 <div class="cc-editor-item-slide-3" style="display: none">
-                  <p>Dark</p>
+                  <p>Light</p>
                 </div>
 
                 <div class="cc-editor-item-slide-3" style="display: none">
@@ -237,8 +237,8 @@
                 </div>
 
                 <!-- Next/prev buttons -->
-                <a class="prev" onclick="SlideSelect.prevSlide(3);">&#10094;</a>
-                <a class="next" onclick="SlideSelect.nextSlide(3);">&#10095;</a>
+                <a class="prev" onclick="SlideSelect.prevSlide(3);setTheme(undefined);">&#10094;</a>
+                <a class="next" onclick="SlideSelect.nextSlide(3);setTheme(undefined);">&#10095;</a>
               </div>
             </div>
 
@@ -246,32 +246,30 @@
               <label for=""></label> 
               <div class="cc-editor-colortab-2">
                 <div class="cc-editor-colortab">
-                  <div class="cc-editor-colorbox"></div>
-                  <div class="cc-editor-colorbox"></div>
-                  <div class="cc-editor-colorbox"></div>
-                  <div class="cc-editor-colorbox"></div>
-                  <div class="cc-editor-colorbox"></div>
-                  <div class="cc-editor-colorbox"></div>
+                  <div class="cc-editor-colorbox" style="background-image: url('media/colorThemes/transparent.svg')" id="colTheme-transparent"></div>
+                  <div class="cc-editor-colorbox" style="background-image: url('media/colorThemes/neonGreen.svg');" id="colTheme-neonGreen"></div>
+                  <div class="cc-editor-colorbox" style="background-image: url('media/colorThemes/blueGreen.svg');" id="colTheme-blueGreen"></div>
+                  <div class="cc-editor-colorbox" style="background-image: url('media/colorThemes/darkBlue.svg');" id="colTheme-darkBlue"></div>
+                  <div class="cc-editor-colorbox" style="background-image: url('media/colorThemes/darkPurple.svg');" id="colTheme-darkPurple"></div>
+                  <div class="cc-editor-colorbox" style="background-image: url('media/colorThemes/neonGreenTwo.svg');" id="colTheme-neonGreenTwo"></div>
                 </div>
-
+                
                 <div class="cc-editor-colortab">
-                  <div class="cc-editor-colorbox"></div>
-                  <div class="cc-editor-colorbox"></div>
-                  <div class="cc-editor-colorbox"></div>
-                  <div class="cc-editor-colorbox"></div>
-                  <div class="cc-editor-colorbox"></div>
-                  <div class="cc-editor-colorbox"></div>
-
+                  <div class="cc-editor-colorbox" style="background-image: url('media/colorThemes/yellow.svg');" id="colTheme-yellow"></div>
+                  <div class="cc-editor-colorbox" style="background-image: url('media/colorThemes/pastelGrey.svg');" id="colTheme-pastelGrey"></div>
+                  <div class="cc-editor-colorbox" style="background-image: url('media/colorThemes/pastelBlue.svg');" id="colTheme-pastelBlue"></div>
+                  <div class="cc-editor-colorbox" style="background-image: url('media/colorThemes/electricIndigo.svg');" id="colTheme-electricIndigo"></div>
+                  <div class="cc-editor-colorbox" style="background-image: url('media/colorThemes/aquamarine.svg');" id="colTheme-aquamarine"></div>
+                  <div class="cc-editor-colorbox" style="background-image: url('media/colorThemes/greenBlue.svg');" id="colTheme-greenBlue"></div>
                 </div>
-
+                
                 <div class="cc-editor-colortab">
-                  <div class="cc-editor-colorbox"></div>
-                  <div class="cc-editor-colorbox"></div>
-                  <div class="cc-editor-colorbox"></div>
-                  <div class="cc-editor-colorbox"></div>
-                  <div class="cc-editor-colorbox"></div>
-                  <div class="cc-editor-colorbox"></div>
-
+                  <div class="cc-editor-colorbox" style="background-image: url('media/colorThemes/veryBlue.svg');" id="colTheme-veryBlue"></div>
+                  <div class="cc-editor-colorbox" style="background-image: url('media/colorThemes/coffee.svg');" id="colTheme-coffee"></div>
+                  <div class="cc-editor-colorbox" style="background-image: url('media/colorThemes/veryOrange.svg');" id="colTheme-veryOrange"></div>
+                  <div class="cc-editor-colorbox" style="background-image: url('media/colorThemes/minty.svg');" id="colTheme-minty"></div>
+                  <div class="cc-editor-colorbox" style="background-image: url('media/colorThemes/mintyTwo.svg');" id="colTheme-mintyTwo"></div>
+                  <div class="cc-editor-colorbox" style="background-image: url('media/colorThemes/grey.svg');" id="colTheme-grey"></div>
                 </div>
               </div>
             </div>

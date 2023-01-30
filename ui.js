@@ -13,7 +13,7 @@ class SlideSelect {
         this.slides = selectAll('.' + slideItemName + indexPos);
         this.element = selectAll('.' + slideSelectorName)[indexPos];
         this.selectedSlide = 0;
-        
+
         for (let i = 0; i < this.slides.length; i++) {
             this.slides[i].elt.style.display = "none";
         }
@@ -109,6 +109,52 @@ function setMode(mode, elem) {
     checkAnimationMode();
 }
 
+function setTheme(theme) {
+    if (theme != undefined) {
+        while (themeSelect.value != "Custom") {
+            themeSelect.nextSlide();
+        }
+    }
+    switch (themeSelect.value) {
+        case "Light":
+            themeColor = "transparent";
+            backgroundColor = color(colorThemeMap["transparent"].base);
+            backgroundColor.setAlpha(255);
+            accentColor = color(colorThemeMap["transparent"].accent);
+            accentColor.setAlpha(255);
+            break;
+        case "Dark":
+            themeColor = "transparent";
+            backgroundColor = color(colorThemeMap["transparent"].accent);
+            backgroundColor.setAlpha(255);
+            accentColor = color(colorThemeMap["transparent"].base);
+            accentColor.setAlpha(255);
+            break;
+        case "Random":
+            themeColor = random(allColorThemes);
+            backgroundColor = color(colorThemeMap[themeColor].base);
+            backgroundColor.setAlpha(255);
+            accentColor = color(colorThemeMap[themeColor].accent);
+            accentColor.setAlpha(255);
+            break;
+        case "Custom":
+            if (themeColor == undefined && theme == undefined) {
+                themeColor = "transparent";
+            } else if (theme != undefined) {
+                themeColor = theme;
+            }
+            backgroundColor = color(colorThemeMap[themeColor].base);
+            backgroundColor.setAlpha(255);
+            accentColor = color(colorThemeMap[themeColor].accent);
+            accentColor.setAlpha(255);
+            break;
+        default:
+            throw "Unknown theme!";
+    }
+    document.querySelector(":root").style.setProperty("--base", backgroundColor.toString('#rrggbb'));
+    document.querySelector(":root").style.setProperty("--accent", accentColor.toString('#rrggbb'));
+}
+
 function checkAnimationMode() {
     if (textOrientationSelect.value == "Top to Bottom") {
         if (morphMode == TransMorph) {
@@ -161,7 +207,7 @@ function initializeUI() {
     shapeEvolveProgressSlider = select("#shapeEvolveProgressSlider");
     shapeEvolveProgressSlider.value(5);
     shapeEvolveProgressSlider.changed(() => {
-       startDrawing();
+        startDrawing();
     });
 
     letterNoiseSlider = select("#letterNoiseSlider");
@@ -182,6 +228,13 @@ function initializeUI() {
 
     saveButton = select("#saveButton");
     saveButton.mousePressed(() => { saveButton.addClass("active"); });
+
+    themeButtons = selectAll(".cc-editor-colorbox");
+    themeButtons.forEach((elem) => {
+        elem.mousePressed(() => {
+            setTheme(elem.elt.id.split("-")[1]);
+        });
+    });
 }
 
 function showLoadingMessage() {

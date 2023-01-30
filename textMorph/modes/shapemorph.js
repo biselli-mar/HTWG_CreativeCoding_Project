@@ -19,7 +19,7 @@ class ShapeMorph extends AnimationMode {
     }
 
     static setup() {
-        background(backgroundColor);
+        //background(backgroundColor);
         stroke(accentColor);
 
         if (pathCount == undefined || fontChanged) {

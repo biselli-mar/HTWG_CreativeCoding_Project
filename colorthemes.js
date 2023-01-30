@@ -66,25 +66,30 @@ let colorThemeMap = {
     grey: {
         base: "#D8D8D8",
         accent: "#0D1321"
+    },
+    transparent: {
+        base: "#FFFFFF",
+        accent: "#000000"
     }
 };
 
 let allColorThemes = [
-    neonGreen,
-    blueGreen,
-    darkBlue,
-    darkPurple,
-    neonGreenTwo,
-    yellow,
-    pastelGrey,
-    pastelBlue,
-    electricIndigo,
-    aquamarine,
-    greenBlue,
-    veryBlue,
-    coffee,
-    veryOrange,
-    minty,
-    mintyTwo,
-    grey
+    "neonGreen",
+    "blueGreen",
+    "darkBlue",
+    "darkPurple",
+    "neonGreenTwo",
+    "yellow",
+    "pastelGrey",
+    "pastelBlue",
+    "electricIndigo",
+    "aquamarine",
+    "greenBlue",
+    "veryBlue",
+    "coffee",
+    "veryOrange",
+    "minty",
+    "mintyTwo",
+    "grey",
+    "transparent"
 ];

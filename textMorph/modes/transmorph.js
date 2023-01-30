@@ -17,7 +17,7 @@ class TransMorph extends AnimationMode {
     }
 
     static setup() {
-        background(backgroundColor);
+        //background(backgroundColor);
         stroke(accentColor);
         randomSeed(random(100000));
         if (pathCount == undefined || fontChanged) {

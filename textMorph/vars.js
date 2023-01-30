@@ -41,6 +41,7 @@ let alphaFade = 1;
 let drawVertical = false;
 let fontSizeFactor = 1;
 let font;
+let themeColor;
 
 // shapeMode evolution progress
 const shapeEvolveCap = 10;
@@ -76,6 +77,7 @@ let themeSelect;
 let startDrawingButton;
 let resetButton;
 let saveButton;
+let themeButtons = [];
 
 let drawingActive = false;
 let fontChanged = false;

@@ -102,7 +102,7 @@ function setup() {
     // somehow element width is not loaded properly on first run
     windowResized();
 
-    background(backgroundColor);
+    //background(backgroundColor);
     stroke(accentColor);
 }
 
@@ -124,6 +124,7 @@ function startDrawing() {
     console.log("Drawing started");
     clear();
     noiseSeed(random(10000));
+    setTheme(undefined);
 
     // split the text into lines
     lines = textInput.value().split("\n");

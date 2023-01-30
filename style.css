@@ -232,17 +232,26 @@ p {
 
 /* COLOR INPUT */
 
-.cc-editor-colortab {
-  width: 50%;
-  display: flex;
-  justify-content: space-between;
-}
-
-.cc-editor-colorbox {
-  width: 35px;
-  height: 35px;
-  border: 1px solid var(--accent);
-}
+.cc-editor-colortab-2 {
+    display: block;
+    width: 50%;
+  
+  }
+  
+  .cc-editor-colortab {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 3%;
+  }
+  
+  .cc-editor-colorbox {
+    width: 13%;
+    padding-top: 13%;
+    background-image: aliceblue;
+    background-image: url("./farben/svg/farbe1.svg");
+    border: 1px solid var(--accent);
+  }
 
 
 /* BUTTONS BOTTOM */

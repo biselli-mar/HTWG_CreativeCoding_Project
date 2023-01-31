@@ -1,7 +1,7 @@
 let colorThemeMap = {
     neonGreen: {
-        base: "#7fff2a",
-        accent: "#ff4352"
+        base: "#7fee34",
+        accent: "#cc4352"
     },
     blueGreen: {
         base: "#AEF78E",

@@ -1,7 +1,7 @@
 let colorThemeMap = {
     neonGreen: {
-        base: "#7fee34",
-        accent: "#cc4352"
+        base: "#0B3948",
+        accent: "#ff2c46"
     },
     blueGreen: {
         base: "#AEF78E",
@@ -28,7 +28,7 @@ let colorThemeMap = {
         accent: "#FEF6C9"
     },
     pastelBlue: {
-        base: "#96C0B7",
+        base: "#71a397",
         accent: "#FEF6C9"
     },
     electricIndigo: {
@@ -36,8 +36,9 @@ let colorThemeMap = {
         accent: "#6610F2"
     },
     aquamarine: {
-        base: "#56E39F",
-        accent: "#5B6C5D"
+        base: "#3B2C35",
+        accent: "#56E39F"
+
     },
     greenBlue: {
         base: "#59C9A5",
@@ -61,7 +62,7 @@ let colorThemeMap = {
     },
     mintyTwo: {
         base: "#F7DD72",
-        accent: "#5C946E"
+        accent: "#4a6d54"
     },
     grey: {
         base: "#D8D8D8",

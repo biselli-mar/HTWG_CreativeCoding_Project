@@ -180,17 +180,17 @@ function initializeUI() {
     SlideSelect.slideSetup();
 
     textInput = select("#newText");
-    textInput.value("Creative\nCoding");
+    textInput.value("Elusive\nType");
 
     fontSizeSlider = select("#fontSizeSlider");
     fontSizeSlider.changed(() => { fontChanged = true; });
     fontSizeSlider.value(1);
 
     lineWidthSlider = select("#lineWidthSlider");
-    lineWidthSlider.value(2);
+    lineWidthSlider.value(1);
 
     lerpGrowthSlider = select("#lerpGrowthSlider");
-    lerpGrowthSlider.value(4);
+    lerpGrowthSlider.value(4.7);
 
     letterSpacingSlider = select("#letterSpacingSlider");
     letterSpacingSlider.value(0.5);
@@ -199,10 +199,10 @@ function initializeUI() {
     lineSpacingSlider.value(1);
 
     alphaFadeSlider = select("#alphaFadeSlider");
-    alphaFadeSlider.value(1);
+    alphaFadeSlider.value(0.9);
 
     alphaMaxSlider = select("#alphaMaxSlider");
-    alphaMaxSlider.value(100);
+    alphaMaxSlider.value(170);
 
     shapeEvolveProgressSlider = select("#shapeEvolveProgressSlider");
     shapeEvolveProgressSlider.value(5);

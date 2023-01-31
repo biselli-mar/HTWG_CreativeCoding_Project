@@ -113,6 +113,14 @@ p {
   width: 50%;
 }
 
+.cc-editor-infotext-p p {
+  text-align: left;
+}
+
+#infotext-evolution, #infotext-noise {
+  display: none;
+}
+
 /* TEXT INPUT */
 
 .cc-editor-text textarea {

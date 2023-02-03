@@ -193,7 +193,9 @@ function downloadCanvas() {
     push();
     pixelDensity(15);
     startDrawing();
-    draw();
+    while (drawingActive) {
+        animationMode.draw();
+    }
     saveCanvas('CC-project-textMorph_highRes.'+year()+day()+'-'+hour()+'-'+minute()+'-'+second(),'png');
     pop();
     pixelDensity(1);

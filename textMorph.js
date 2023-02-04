@@ -121,7 +121,6 @@ function draw() {
 
 // ========== Drawing Controls ===========
 function startDrawing() {
-    console.log("Drawing started");
     clear();
     noiseSeed(random(10000));
     setTheme(undefined);
@@ -138,7 +137,6 @@ function startDrawing() {
     checkAnimationMode();
     
     animationMode.setup();
-    console.log("Setup done");
     drawingActive = true;
 }
 

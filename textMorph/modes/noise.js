@@ -11,6 +11,14 @@ class Noise extends AnimationMode {
         alphaMin = 0;
     }
 
+    static setupUI() {
+        select("#infotext-noise").style("display", "block");
+    }
+
+    static unloadUI() {
+        select("#infotext-noise").style("display", "none");
+    }
+
     static setup() {
         background(backgroundColor);
         stroke(accentColor);

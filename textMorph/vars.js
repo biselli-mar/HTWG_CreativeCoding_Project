@@ -36,6 +36,7 @@ let lerpGrowth = 1;
 let letterSpacing = 2;
 let lineSpacing = 2;
 let alphaMax = 100;
+let prevAlphaMax;
 let alphaMin = 0;
 let alphaFade = 1;
 let drawVertical = false;

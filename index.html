@@ -41,7 +41,7 @@
               <div class="cc-editor-head">
                 <h2>Morph</h2>
               </div>
-              <div class="cc-editor-item cc-editor-infotext-p">
+              <div class="cc-editor-item cc-editor-infotext-p" id="infotext-morph">
                 <p>
                   Welcome to morph mode. Type your text and the letters will automatically morph into each other. You can change base parameters like the font and specific ones for the way the letters morph. 
                   <br> <br>
@@ -227,25 +227,6 @@
                   <input type="range" min="0.2" max="30" value="1" step="0.2" class="cc-editor-slider" id="lineWidthSlider">
                 </div>
               </div>
-  
-              <div class="cc-editor-item">
-                <label for="">Text direction</label> 
-                <div class="cc-editor-slide-container">
-
-                  <!-- Full-width slides/quotes -->
-                  <div class="cc-editor-item-slide-2" style="display: none">
-                    <p>Left to Right</p>
-                  </div>
-
-                  <div class="cc-editor-item-slide-2" style="display: none">
-                    <p>Top to Bottom</p>
-                  </div>
-
-                  <!-- Next/prev buttons -->
-                  <a class="prev" onclick="SlideSelect.prevSlide(2);">&#10094;</a>
-                  <a class="next" onclick="SlideSelect.nextSlide(2);">&#10095;</a>
-                </div>
-              </div>  
             </div>
 
    
@@ -258,25 +239,25 @@
               <div class="cc-editor-slide-container">
 
                 <!-- Full-width slides/quotes -->
-                <div class="cc-editor-item-slide-3" style="display: none">
+                <div class="cc-editor-item-slide-2" style="display: none">
                   <p>Dark</p>
                 </div>
 
-                <div class="cc-editor-item-slide-3" style="display: none">
+                <div class="cc-editor-item-slide-2" style="display: none">
                   <p>Light</p>
                 </div>
 
-                <div class="cc-editor-item-slide-3" style="display: none">
+                <div class="cc-editor-item-slide-2" style="display: none">
                   <p>Random</p>
                 </div>
 
-                <div class="cc-editor-item-slide-3" style="display: none">
+                <div class="cc-editor-item-slide-2" style="display: none">
                   <p>Custom</p>
                 </div>
 
                 <!-- Next/prev buttons -->
-                <a class="prev" onclick="SlideSelect.prevSlide(3);setTheme(undefined);">&#10094;</a>
-                <a class="next" onclick="SlideSelect.nextSlide(3);setTheme(undefined);">&#10095;</a>
+                <a class="prev" onclick="SlideSelect.prevSlide(2);setTheme(undefined);">&#10094;</a>
+                <a class="next" onclick="SlideSelect.nextSlide(2);setTheme(undefined);">&#10095;</a>
               </div>
             </div>
 
@@ -355,17 +336,7 @@
                 </ul>
                 <input type="range" min="0" max="1" value="0" step="0.05" class="cc-editor-slider" id="letterNoiseSlider">
               </div>
-            </div>  
-
-            <div class="cc-editor-item">
-              <label for="">Jiggle lines</label> 
-              <div class="cc-editor-slider-container">
-                <ul>
-                  <li></li><li></li><li></li><li></li><li></li><li></li><li></li>
-                </ul>
-                <input type="range" min="1" max="101" value="50" step="16.666" class="cc-editor-slider" id="">
-              </div>
-            </div>  
+            </div> 
 
           </div>
         </div>

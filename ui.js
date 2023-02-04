@@ -1,6 +1,6 @@
 // NEU
 let slideItemName = "cc-editor-item-slide-";
-let slideItemCount = 4;
+let slideItemCount = 3;
 let slideSelectorName = "cc-editor-slide-container";
 let slideSelectors = [];
 
@@ -72,8 +72,7 @@ class SlideSelect {
     static selectorNameMap = {
         "fontSelect": 0,
         "textAlignSelect": 1,
-        "textOrientationSelect": 2,
-        "themeSelect": 3
+        "themeSelect": 2
     }
     static getSelector(name) {
         return slideSelectors[SlideSelect.selectorNameMap[name]];
@@ -81,6 +80,7 @@ class SlideSelect {
 }
 
 function setMode(mode, elem) {
+    morphMode.unloadUI();
     switch (mode) {
         case "Textmode":
             if (morphMode != TransMorph) {
@@ -156,22 +156,14 @@ function setTheme(theme) {
 }
 
 function checkAnimationMode() {
-    if (textOrientationSelect.value == "Top to Bottom") {
-        if (morphMode == TransMorph) {
-            animationMode = VerticalTransMorph;
-        } else {
-            throw "Mode not implemented for vertical text orientation!"
-        }
+    if (morphMode == TransMorph) {
+        animationMode = HorizontalTransMorph;
+    } else if (morphMode == ShapeMorph) {
+        animationMode = HorizontalShapeMorph;
+    } else if (morphMode == Noise) {
+        animationMode = DefaultNoise;
     } else {
-        if (morphMode == TransMorph) {
-            animationMode = HorizontalTransMorph;
-        } else if (morphMode == ShapeMorph) {
-            animationMode = HorizontalShapeMorph;
-        } else if (morphMode == Noise) {
-            animationMode = DefaultNoise;
-        } else {
-            throw "Unknown morph mode!"
-        }
+        throw "Unknown morph mode!"
     }
 }
 //---

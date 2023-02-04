@@ -1,3 +1,4 @@
+// @DEPRECATED
 class VerticalTransMorph extends TransMorph {
     static setup() {
         super.readParams();

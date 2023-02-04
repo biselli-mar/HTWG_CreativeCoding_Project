@@ -10,6 +10,5 @@ function getNextY() {
 
 function finishDrawing() {
     drawingActive = false;
-    console.log("Drawing finished");
-    hideLoadingMessage();
+    //hideLoadingMessage();
 }

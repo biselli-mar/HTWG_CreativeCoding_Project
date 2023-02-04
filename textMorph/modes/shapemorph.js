@@ -16,11 +16,25 @@ class ShapeMorph extends AnimationMode {
     static setupUI() {
         select("#mode-params-evolution").style("display", "block");
         select("#mode-specific-param-head").style("display", "block");
+        select("#infotext-evolution").style("display", "block");
+        alphaMaxSlider.parent().parentElement.style.display = "";
+        prevAlphaMax = alphaMaxSlider.value();
+        alphaMaxSlider.value(255);
+    }
+
+    static unloadUI() {
+        select("#mode-params-evolution").style("display", "none");
+        select("#mode-specific-param-head").style("display", "none");
+        select("#infotext-evolution").style("display", "none");
+        alphaMaxSlider.parent().parentElement.style.display = "none";
+        alphaMaxSlider.value(prevAlphaMax);
     }
 
     static setup() {
         //background(backgroundColor);
-        stroke(accentColor);
+        let tempColor = color(accentColor);
+        tempColor.setAlpha(alphaMax);
+        stroke(tempColor);
 
         if (pathCount == undefined || fontChanged) {
             let firstLetter_path = font().textToPoints('G', 0, 0, fontSize, {

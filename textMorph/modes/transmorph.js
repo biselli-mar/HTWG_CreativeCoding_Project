@@ -12,8 +12,17 @@ class TransMorph extends AnimationMode {
     }
 
     static setupUI() {
-        select("#mode-params-evolution").style("display", "none");
-        select("#mode-specific-param-head").style("display", "none");
+        select("#infotext-morph").style("display", "block");
+        alphaMaxSlider.parent().parentElement.style.display = "";
+        alphaFadeSlider.parent().parentElement.style.display = "";
+        lerpGrowthSlider.parent().parentElement.style.display = "";
+    }
+
+    static unloadUI() {
+        select("#infotext-morph").style("display", "none");
+        alphaMaxSlider.parent().parentElement.style.display = "none";
+        alphaFadeSlider.parent().parentElement.style.display = "none";
+        lerpGrowthSlider.parent().parentElement.style.display = "none";
     }
 
     static setup() {

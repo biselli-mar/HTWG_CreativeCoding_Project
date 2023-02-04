@@ -1,9 +1,9 @@
 // ======== Font Vars ========
 let fontPool = ["Amatic", "Anton", "Crimson", 
-                "FlowCircular", "LatoBlack", "LatoThin", 
-                "Lobster", "NotoSerifBold", "NotoSerifItalic",
-                "Playfair", "PlayfairBold", "RalewayBold",
-                "RalewayEL", "RubikMono", "SpecialElite", "YesevaOne"];
+                "LatoBlack", "LatoThin", "Lobster", 
+                "NotoSerifBold", "NotoSerifItalic", "Playfair",
+                "PlayfairBold", "RalewayBold", "RalewayEL",
+                "RubikMono", "SpecialElite", "YesevaOne"];
 let loadedFonts = {};
 let firstLetterFontSampleFactor = 0.5;
 let fontSize;

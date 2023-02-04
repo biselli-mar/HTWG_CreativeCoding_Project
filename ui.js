@@ -80,6 +80,10 @@ class SlideSelect {
 }
 
 function setMode(mode, elem) {
+    drawingActive = false;
+    clear();
+    currentLine = 0;
+    printText = lines[0];
     morphMode.unloadUI();
     switch (mode) {
         case "Textmode":

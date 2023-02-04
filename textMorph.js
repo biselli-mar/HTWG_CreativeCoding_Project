@@ -141,8 +141,8 @@ function startDrawing() {
 }
 
 function resetDrawing() {
-    clear();
     drawingActive = false;
+    clear();
     currentLine = 0;
     printText = lines[0];
 

@@ -36,13 +36,6 @@ class Noise extends AnimationMode {
         //background(backgroundColor);
         stroke(accentColor);
 
-        for (let i = 0; i < lines.length; i++) {
-            let path = font().textToPoints(lines[i], 0, 0, fontSize, {
-                sampleFactor: firstLetterFontSampleFactor
-            });
-            paths["NOISE_MODE_" + i] = path;
-        }
-
         let textW = textWidth(printText[0]);
         let textH = textAscent() + textDescent();
 
@@ -56,13 +49,16 @@ class Noise extends AnimationMode {
         let prevParticleCount = 0;
         flowfield = new Array(noiseCols * noiseRows);
         noiseParticles = [];
+
         for (let line = 0; line < lines.length; line++) {
-            let path = paths["NOISE_MODE_" + line];
+            let path = font().textToPoints(lines[line], 0, 0, fontSize, {
+                sampleFactor: firstLetterFontSampleFactor
+            });
             for (let i = 0; i < path.length; i++) {
                 let pos = path[i];
                 noiseParticles[i + prevParticleCount] = new Particle(pos.x + textW, pos.y + textH * (line + 1));
             }
-            prevParticleCount = path.length;
+            prevParticleCount += path.length;
         }
     }
 }

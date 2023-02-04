@@ -102,7 +102,7 @@ function setMode(mode, elem) {
         case "Noise":
             if (morphMode != Noise) {
                 morphMode = Noise;
-                paths = {};
+                noiseParticles = [];
             }
             break;
         default:

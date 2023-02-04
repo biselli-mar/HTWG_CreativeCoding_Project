@@ -121,6 +121,8 @@ function startDrawing() {
     resizeCanvas(divWidth, divHeight);
     fontChanged = true;
     clear();
+    select("#mode-noise-resume").style("display", "none");
+    select("#mode-noise-stop").style("display", "");
     noiseSeed(randomNoiseSeed);
     randomSeed(randomNoiseSeed);
     setTheme(undefined);

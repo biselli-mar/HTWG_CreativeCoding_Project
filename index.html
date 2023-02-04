@@ -83,7 +83,7 @@
             <h2>Text</h2>
           </div>
           <div class="cc-editor-item cc-editor-text">
-            <textarea type="text" rows="4" id="newText">Elusive Type</textarea>
+            <textarea type="text" rows="4" id="newText">Elusive&#10;Type</textarea>
           </div>
 
           <div class="cc-editor-head" id="mode-specific-param-head" style="display: none">
@@ -112,12 +112,12 @@
           <div class="cc-editor-items" id="mode-params-noise" style="display: none">
             <div class="cc-editor-buttons" id="noise-buttons">
               <div class="cc-editor-button"
-                onclick="stopDrawing();targetOpacity=noiseOpacity;document.getElementById('mode-noise-resume').style.display='';this.style.display='None';"
+                onclick="stopDrawing();targetOpacity=noiseOpacity;document.getElementById('mode-noise-resume').style.display='';select('#startButton').removeClass('active');this.style.display='None';"
                 id="mode-noise-stop">
                 Stop
               </div>
               <div class="cc-editor-button"
-                onclick="resumeDrawing();targetOpacity=0;document.getElementById('mode-noise-stop').style.display='';this.style.display='None';"
+                onclick="resumeDrawing();targetOpacity=0;document.getElementById('mode-noise-stop').style.display='';select('#startButton').addClass('active');this.style.display='None';"
                 id="mode-noise-resume" style="display: none">
                 Resume
               </div>

@@ -189,14 +189,14 @@ function drawLetter(letter, x, y) {
 }
 
 function downloadCanvas() {
-    saveCanvas('CC-project-textMorph_lowRes.'+year()+day()+'-'+hour()+'-'+minute()+'-'+second(),'png');
+    saveCanvas('CC-project-textMorph_lowRes_'+year()+day()+'-'+hour()+'-'+minute()+'-'+second(),'png');
     push();
-    pixelDensity(15);
+    pixelDensity(12);
     startDrawing();
     while (drawingActive) {
         animationMode.draw();
     }
-    saveCanvas('CC-project-textMorph_highRes.'+year()+day()+'-'+hour()+'-'+minute()+'-'+second(),'png');
+    saveCanvas('CC-project-textMorph_highRes_'+year()+day()+'-'+hour()+'-'+minute()+'-'+second(),'png');
     pop();
     pixelDensity(1);
     deactivateSaveButton();

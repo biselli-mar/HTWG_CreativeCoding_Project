@@ -26,6 +26,8 @@ let prevY = 0;
 let currentChar = 0;
 let lerpAmount = 0;
 
+let randomNoiseSeed;
+
 let x;
 let y;
 
@@ -57,6 +59,9 @@ let flowfield;
 let noiseParticles = [];
 let noiseIncrement = 0.15;
 let noiseOpacity = 30;
+let targetOpacity = 0;
+
+let shownNoiseLineCountWarn = false;
 
 // ======== Text Vars ========
 let printText = "Creative\nCoding";
@@ -76,6 +81,7 @@ let alphaMaxSlider;
 let alphaMinSlider;
 let fontSizeSlider;
 let shapeEvolveProgressSlider;
+let noiseOpacityFalloffSlider;
 let letterNoiseSlider;
 
 let fontSelect;
@@ -87,6 +93,9 @@ let startDrawingButton;
 let resetButton;
 let saveButton;
 let themeButtons = [];
+
+let noiseStopButton;
+let noiseResumeButton;
 
 let drawingActive = false;
 let fontChanged = false;

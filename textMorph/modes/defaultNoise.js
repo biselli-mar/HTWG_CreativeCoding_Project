@@ -21,11 +21,13 @@ class DefaultNoise extends Noise {
         for (let i = 0; i < noiseParticles.length; i++) {
             noiseParticles[i].follow(flowfield);
             noiseParticles[i].update();
-            noiseParticles[i].edges();
             noiseParticles[i].show();
         }
 
-        noiseOpacity = noiseOpacity - 0.02;
+        noiseOpacity -= noiseOpacityFalloffSlider.value() * 0.02;
+        if (noiseOpacity < targetOpacity) {
+            finishDrawing();
+        }
     };
 
     static setup() {
@@ -42,6 +44,10 @@ class DefaultNoise extends Noise {
         // filter out empty lines
         lines = lines.filter(line => line.length > 0);
 
+        if (!shownNoiseLineCountWarn && lines.length > 2) {
+            alert("Info: Noise is usually best with 1 or 2 lines of text.\nIf you want more, add spaces to the end of the line or decrease font size for it to fit.")
+            shownNoiseLineCountWarn = true;
+        }
         // Find the longest line
         let longestLine = lines[0];
         for (let i = 1; i < lines.length; i++) {
@@ -50,12 +56,12 @@ class DefaultNoise extends Noise {
             }
         }
 
-        while (textWidth(longestLine) > width / 2) {
+        while (textWidth(longestLine) > width / 1.5) {
             fontSize -= 1;
             textSize(fontSize);
         }
 
-        while (textWidth(longestLine) < width / 2.3) {
+        while (textWidth(longestLine) < width / 1.4) {
             fontSize += 1;
             textSize(fontSize);
         }

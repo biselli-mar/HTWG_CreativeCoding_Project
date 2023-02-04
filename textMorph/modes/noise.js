@@ -13,14 +13,19 @@ class Noise extends AnimationMode {
 
     static setupUI() {
         select("#infotext-noise").style("display", "block");
+        select("#mode-specific-param-head").style("display", "block");
+        select("#mode-params-noise").style("display", "block");
         alphaMaxSlider.parent().parentElement.style.display = "none";
         letterSpacingSlider.parent().parentElement.style.display = "none";
         lineSpacingSlider.parent().parentElement.style.display = "none";
         lineWidthSlider.parent().parentElement.style.display = "none";
+
     }
     
     static unloadUI() {
         select("#infotext-noise").style("display", "none");
+        select("#mode-specific-param-head").style("display", "none");
+        select("#mode-params-noise").style("display", "none");
         alphaMaxSlider.parent().parentElement.style.display = "";
         letterSpacingSlider.parent().parentElement.style.display = "";
         lineSpacingSlider.parent().parentElement.style.display = "";
@@ -30,10 +35,8 @@ class Noise extends AnimationMode {
     static setup() {
         //background(backgroundColor);
         stroke(accentColor);
-        randomSeed(random(100000));
 
         for (let i = 0; i < lines.length; i++) {
-            console.log(lines[i])
             let path = font().textToPoints(lines[i], 0, 0, fontSize, {
                 sampleFactor: firstLetterFontSampleFactor
             });
@@ -48,8 +51,11 @@ class Noise extends AnimationMode {
         noiseCols = floor(width / noiseScale);
         noiseRows = floor(height / noiseScale);
 
+        noiseOpacity = 30;
+
         let prevParticleCount = 0;
         flowfield = new Array(noiseCols * noiseRows);
+        noiseParticles = [];
         for (let line = 0; line < lines.length; line++) {
             let path = paths["NOISE_MODE_" + line];
             for (let i = 0; i < path.length; i++) {
@@ -101,25 +107,6 @@ function Particle(x, y) {
     this.updatePrev = function() {
         this.prevPos.y = this.pos.y;
         this.prevPos.x = this.pos.x;
-    }
-    
-    this.edges = function() {
-      if (this.pos.x > width) {
-        this.pos.x = 0;
-        this.updatePrev();
-      }
-      if (this.pos.x < 0) {
-        this.pos.x = width;
-        this.updatePrev();
-      }
-      if (this.pos.y > height) {
-        this.pos.y = 0;
-        this.updatePrev();
-      }
-      if (this.pos.y < 0) {
-        this.pos.y = height;
-        this.updatePrev();
-      }
     }
   }
   

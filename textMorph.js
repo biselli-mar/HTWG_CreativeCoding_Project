@@ -26,13 +26,13 @@ function preload() {
 
 function setup() {
     // ========== Canvas Setup ===========
-    divWidth  = document.getElementById("canvasForHTML").offsetWidth;
+    divWidth = document.getElementById("canvasForHTML").offsetWidth;
     divHeight = document.getElementById("canvasForHTML").offsetHeight;
 
     canvas = createCanvas(divWidth, divHeight);
     canvas.parent('canvasForHTML');
     angleMode(DEGREES);
-    
+
     // ===== Setup UI vars and HTML ======
     // ui.js
     initializeUI();
@@ -67,7 +67,7 @@ function setup() {
     noFill();
     textAlign(LEFT);
     textFont(font());
-    
+
     fontSize = int(height / 5);
     textAlign(LEFT);
     textSize(fontSize);
@@ -100,17 +100,12 @@ function setup() {
 
     textSize(fontSize);
     // somehow element width is not loaded properly on first run
-    windowResized();
+    divWidth = document.getElementById("canvasForHTML").offsetWidth;
+    divHeight = document.getElementById("canvasForHTML").offsetHeight;
+    resizeCanvas(divWidth, divHeight);
 
     //background(backgroundColor);
     stroke(accentColor);
-}
-
-function windowResized() {
-    divWidth  = document.getElementById("canvasForHTML").offsetWidth;
-    divHeight = document.getElementById("canvasForHTML").offsetHeight;
-    resizeCanvas(divWidth, divHeight);
-    fontChanged = true;
 }
 
 function draw() {
@@ -121,26 +116,44 @@ function draw() {
 
 // ========== Drawing Controls ===========
 function startDrawing() {
+    divWidth = document.getElementById("canvasForHTML").offsetWidth;
+    divHeight = document.getElementById("canvasForHTML").offsetHeight;
+    resizeCanvas(divWidth, divHeight);
+    fontChanged = true;
     clear();
-    noiseSeed(random(10000));
+    noiseSeed(randomNoiseSeed);
+    randomSeed(randomNoiseSeed);
     setTheme(undefined);
 
     // split the text into lines
     lines = textInput.value().split("\n");
     // filter out empty lines
     lines = lines.filter(line => line.length > 0);
-    
+
     currentLine = 0;
     printText = lines[0];
     textFont(font());
-    
+
     checkAnimationMode();
-    
+
     animationMode.setup();
     drawingActive = true;
 }
 
+function stopDrawing() {
+    drawingActive = false;
+}
+
+function resumeDrawing() {
+    drawingActive = true;
+}
+
 function resetDrawing() {
+    finishDrawing();
+    divWidth = document.getElementById("canvasForHTML").offsetWidth;
+    divHeight = document.getElementById("canvasForHTML").offsetHeight;
+    resizeCanvas(divWidth, divHeight);
+    fontChanged = true;
     drawingActive = false;
     clear();
     currentLine = 0;
@@ -187,14 +200,14 @@ function drawLetter(letter, x, y) {
 }
 
 function downloadCanvas() {
-    saveCanvas('CC-project-textMorph_lowRes_'+year()+day()+'-'+hour()+'-'+minute()+'-'+second(),'png');
+    saveCanvas('CC-project-textMorph_lowRes_' + year() + day() + '-' + hour() + '-' + minute() + '-' + second(), 'png');
     push();
     pixelDensity(12);
     startDrawing();
     while (drawingActive) {
         animationMode.draw();
     }
-    saveCanvas('CC-project-textMorph_highRes_'+year()+day()+'-'+hour()+'-'+minute()+'-'+second(),'png');
+    saveCanvas('CC-project-textMorph_highRes_' + year() + day() + '-' + hour() + '-' + minute() + '-' + second(), 'png');
     pop();
     pixelDensity(1);
     deactivateSaveButton();

@@ -210,6 +210,9 @@ function initializeUI() {
     letterNoiseSlider = select("#letterNoiseSlider");
     letterNoiseSlider.value(0);
 
+    noiseOpacityFalloffSlider = select("#noiseOpacityFalloffSlider");
+    noiseOpacityFalloffSlider.value(1);
+
     fontSelect = SlideSelect.getSelector("fontSelect");
     fontSelect.element.mouseClicked(() => { fontChanged = true; });
     textAlignSelect = SlideSelect.getSelector("textAlignSelect");
@@ -225,6 +228,9 @@ function initializeUI() {
 
     saveButton = select("#saveButton");
     saveButton.mousePressed(() => { saveButton.addClass("active"); });
+
+    noiseStopButton = select("#mode-noise-stop");
+    noiseResumeButton = select("#mode-noise-resume");
 
     themeButtons = selectAll(".cc-editor-colorbox");
     themeButtons.forEach((elem) => {

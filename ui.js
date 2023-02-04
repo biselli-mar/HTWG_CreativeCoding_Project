@@ -84,6 +84,7 @@ function setMode(mode, elem) {
     clear();
     currentLine = 0;
     printText = lines[0];
+    startDrawingButton.removeClass("active");
     morphMode.unloadUI();
     switch (mode) {
         case "Textmode":

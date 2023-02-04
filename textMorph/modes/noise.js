@@ -33,6 +33,7 @@ class Noise extends AnimationMode {
         randomSeed(random(100000));
 
         for (let i = 0; i < lines.length; i++) {
+            console.log(lines[i])
             let path = font().textToPoints(lines[i], 0, 0, fontSize, {
                 sampleFactor: firstLetterFontSampleFactor
             });
@@ -47,13 +48,15 @@ class Noise extends AnimationMode {
         noiseCols = floor(width / noiseScale);
         noiseRows = floor(height / noiseScale);
 
+        let prevParticleCount = 0;
         flowfield = new Array(noiseCols * noiseRows);
         for (let line = 0; line < lines.length; line++) {
             let path = paths["NOISE_MODE_" + line];
             for (let i = 0; i < path.length; i++) {
                 let pos = path[i];
-                noiseParticles[i] = new Particle(pos.x + textW, pos.y + textH * (line + 1));
+                noiseParticles[i + prevParticleCount] = new Particle(pos.x + textW, pos.y + textH * (line + 1));
             }
+            prevParticleCount = path.length;
         }
     }
 }

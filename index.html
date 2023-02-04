@@ -44,7 +44,8 @@
             </div>
             <div class="cc-editor-item cc-editor-infotext-p" id="infotext-morph">
               <p>
-                Welcome to morph mode. Type your text and the letters will automatically morph into each other. You can
+                Welcome to morph mode. Type your text and the letters will automatically morph into each
+                other. You can
                 change base parameters like the font and specific ones for the way the letters morph.
                 <br> <br>
                 If you like a certain design, you can grab a still via the "save" button.
@@ -58,7 +59,8 @@
             </div>
             <div class="cc-editor-item cc-editor-infotext-p">
               <p>
-                Welcome to evolution mode. You can control the fidelity of the letters via the evolution slider. The
+                Welcome to evolution mode. You can control the fidelity of the letters via the evolution
+                slider. The
                 higher you set "evolution", the letter will become more accurate.
                 <br> <br>
               </p>
@@ -71,10 +73,11 @@
             </div>
             <div class="cc-editor-item cc-editor-infotext-p">
               <p>
-                Welcome to morph mode. Type your text and the letters will automatically morph into each other. You can
-                change base parameters like the font and specific ones for the way the letters morph.
+                Welcome to noise mode. Type your text and particles will appear from the contours of the
+                letters and navigate through
+                an invisible flow field.
                 <br> <br>
-                If you like a certain design, you can grab a still via the "save" button.
+                You can always pause and resume the animation via the "Stop" button to save a still.
               </p>
             </div>
           </div>
@@ -110,18 +113,6 @@
           </div>
 
           <div class="cc-editor-items" id="mode-params-noise" style="display: none">
-            <div class="cc-editor-buttons" id="noise-buttons">
-              <div class="cc-editor-button"
-                onclick="stopDrawing();targetOpacity=noiseOpacity;document.getElementById('mode-noise-resume').style.display='';select('#startButton').removeClass('active');this.style.display='None';"
-                id="mode-noise-stop">
-                Stop
-              </div>
-              <div class="cc-editor-button"
-                onclick="resumeDrawing();targetOpacity=0;document.getElementById('mode-noise-stop').style.display='';select('#startButton').addClass('active');this.style.display='None';"
-                id="mode-noise-resume" style="display: none">
-                Resume
-              </div>
-            </div>
             <div class="cc-editor-item">
               <label for="">Opacity Falloff</label>
               <div class="cc-editor-slider-container">
@@ -134,7 +125,20 @@
                   <li></li>
                   <li></li>
                 </ul>
-                <input type="range" min="0.1" max="4" value="1" step="0.1" class="cc-editor-slider" id="noiseOpacityFalloffSlider">
+                <input type="range" min="0.1" max="4" value="1" step="0.1" class="cc-editor-slider"
+                  id="noiseOpacityFalloffSlider">
+              </div>
+            </div>
+            <div class="cc-editor-buttons" style="margin: 10px 15px;" id="noise-buttons">
+              <div class="cc-editor-button"
+                onclick="stopDrawing();targetOpacity=noiseOpacity;document.getElementById('mode-noise-resume').style.display='';select('#startButton').removeClass('active');this.style.display='None';"
+                id="mode-noise-stop">
+                Stop
+              </div>
+              <div class="cc-editor-button"
+                onclick="resumeDrawing();targetOpacity=0;document.getElementById('mode-noise-stop').style.display='';select('#startButton').addClass('active');this.style.display='None';"
+                id="mode-noise-resume" style="display: none;">
+                Resume
               </div>
             </div>
           </div>
@@ -347,7 +351,8 @@
 
               <div class="cc-editor-colortab">
                 <div class="cc-editor-colorbox" style="background-image: url('media/colorThemes/yellow.svg');"
-                  id="colTheme-yellow"></div>
+                  id="colTheme-yellow">
+                </div>
                 <div class="cc-editor-colorbox" style="background-image: url('media/colorThemes/pastelGrey.svg');"
                   id="colTheme-pastelGrey"></div>
                 <div class="cc-editor-colorbox" style="background-image: url('media/colorThemes/pastelBlue.svg');"
@@ -364,15 +369,18 @@
                 <div class="cc-editor-colorbox" style="background-image: url('media/colorThemes/veryBlue.svg');"
                   id="colTheme-veryBlue"></div>
                 <div class="cc-editor-colorbox" style="background-image: url('media/colorThemes/coffee.svg');"
-                  id="colTheme-coffee"></div>
+                  id="colTheme-coffee">
+                </div>
                 <div class="cc-editor-colorbox" style="background-image: url('media/colorThemes/veryOrange.svg');"
                   id="colTheme-veryOrange"></div>
                 <div class="cc-editor-colorbox" style="background-image: url('media/colorThemes/minty.svg');"
-                  id="colTheme-minty"></div>
+                  id="colTheme-minty">
+                </div>
                 <div class="cc-editor-colorbox" style="background-image: url('media/colorThemes/mintyTwo.svg');"
                   id="colTheme-mintyTwo"></div>
                 <div class="cc-editor-colorbox" style="background-image: url('media/colorThemes/grey.svg');"
-                  id="colTheme-grey"></div>
+                  id="colTheme-grey">
+                </div>
               </div>
             </div>
           </div>

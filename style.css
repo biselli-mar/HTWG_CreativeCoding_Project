@@ -1,239 +1,246 @@
 :root {
-  --base: #000;
-  --accent: #fff; 
+    --base: #000;
+    --accent: #fff;
 }
 
-html, body {
-  margin: 0;
-  padding: 0;
-  background-color: var(--base);
-  overflow-x: hidden;
-  color: var(--accent);
-  font-family: SpaceMono-Regular;
+html,
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--base);
+    overflow-x: hidden;
+    color: var(--accent);
+    font-family: SpaceMono-Regular;
 }
 
 canvas {
-  display: block;
+    display: block;
 }
 
 h1 {
-  font-family: SpaceMono-Bold;
-  font-size: 15px;
-  padding: 0;
-  margin: 0;
+    font-family: SpaceMono-Bold;
+    font-size: 15px;
+    padding: 0;
+    margin: 0;
 }
 
 h2 {
-  font-family: SpaceMono-Bold;
-  font-size: 15px;
-  padding: 0;
-  margin: 0;
+    font-family: SpaceMono-Bold;
+    font-size: 15px;
+    padding: 0;
+    margin: 0;
 }
 
 p {
-  margin: 0;
-  text-align: center;
+    margin: 0;
+    text-align: center;
 }
 
 /* GENERAL LAYOUT*/
 
 .cc-container-main {
-  width: calc(100VW - 40px);
-  height: calc(100VH - 40px);
-  display: flex;
-  padding: 20px;
+    width: calc(100VW - 40px);
+    height: calc(100VH - 40px);
+    display: flex;
+    padding: 20px;
 }
 
 .cc-container-editor {
-  width: 32%;
-  height: 100%;
+    width: 32%;
+    height: 100%;
 }
 
 .cc-container-canvas {
-  border: 1px solid var(--accent);
-  margin-left: 10px;
-  width: 68%;
-  height: 100%;
+    border: 1px solid var(--accent);
+    margin-left: 10px;
+    width: 68%;
+    height: 100%;
 }
 
 #canvasForHTML {
-  height: 100%;
+    height: 100%;
 }
 
 /* EDITOR LAYOUT*/
 
 .cc-editor-menu {
-  display: flex;
-  justify-content: space-between;
-  height: 60px;
-  line-height: 60px;
+    display: flex;
+    justify-content: space-between;
+    height: 60px;
+    line-height: 60px;
 }
 
 .cc-editor-menu-item {
-  width: 32%;
-  height: 100%;
-  border: 1px solid var(--accent);
-  text-align: center;
-  display: flex;
-  justify-content: center;
+    width: 32%;
+    height: 100%;
+    border: 1px solid var(--accent);
+    text-align: center;
+    display: flex;
+    justify-content: center;
 }
 
-.active{
-  color: var(--base);
-  background-color: var(--accent);
+.active {
+    color: var(--base);
+    background-color: var(--accent);
 }
 
 .cc-editor-panel {
-  border: 1px solid var(--accent);
-  height: calc(100VH - 40px - 120px - 20px - 2px);
-  margin: 10px 0;
-  overflow-x: scroll;
+    border: 1px solid var(--accent);
+    height: calc(100VH - 40px - 120px - 20px - 2px);
+    margin: 10px 0;
+    overflow-x: scroll;
 }
 
 .cc-editor-head {
-  height: 30px;
-  line-height: 30px;
-  background-color: var(--accent);
-  color: var(--base);
-  padding: 0 20px;
+    height: 30px;
+    line-height: 30px;
+    background-color: var(--accent);
+    color: var(--base);
+    padding: 0 20px;
 }
 
 .cc-editor-items {
-  margin: 10px 0;
+    margin: 10px 0;
 }
 
 .cc-editor-item {
-  display: flex;
-  justify-content: space-between;
-  padding: 0 20px;
-  margin: 15px 0;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+    margin: 15px 0;
 }
 
 .cc-editor-items label {
-  width: 50%;
+    width: 50%;
 }
 
 .cc-editor-infotext-p p {
-  text-align: left;
+    text-align: left;
 }
 
-#infotext-evolution, #infotext-noise {
-  display: none;
+#infotext-evolution,
+#infotext-noise {
+    display: none;
 }
 
 /* TEXT INPUT */
 
 .cc-editor-text textarea {
-  background: var(--base);
-  color: var(--accent);
-  border: 1px dashed var(--accent);
-  font-family: SpaceMono-Regular;
-  font-size: 15px;
-  width: 100%;
-  height: 100px;
-  padding: 10px;
+    background: var(--base);
+    color: var(--accent);
+    border: 1px dashed var(--accent);
+    font-family: SpaceMono-Regular;
+    font-size: 15px;
+    width: 100%;
+    height: 100px;
+    padding: 10px;
 }
 
 .cc-editor-text textarea::placeholder {
-  color: var(--accent);
+    color: var(--accent);
 }
 
 .cc-editor-text textarea:focus {
-  background: var(--base);
-  border: 1px dashed var(--accent);
-  outline: none;
+    background: var(--base);
+    border: 1px dashed var(--accent);
+    outline: none;
 }
 
 /* SLIDERS INPUT */
 
 .cc-editor-slider-container {
-  width: 50%;
-  margin-top: -12px;
+    width: 50%;
+    margin-top: -12px;
 }
 
 .cc-editor-slider-container ul {
-  display: flex;
-  justify-content: space-between;
-  list-style: none;
-  width: 100%;
-  padding: 0 10px;
-  margin: 0, 10px;
-  margin-bottom: -24px;
-  padding-inline-start: 0;
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    width: 100%;
+    padding: 0 10px;
+    margin: 0, 10px;
+    margin-bottom: -24px;
+    padding-inline-start: 0;
 }
 
 .cc-editor-slider-container li {
-  background-color: var(--accent);
-  width: 1px;
-  height: 15px;
-  padding: none;
-  margin: none;
+    background-color: var(--accent);
+    width: 1px;
+    height: 15px;
+    padding: none;
+    margin: none;
 }
 
 .cc-editor-slider-container input {
-  width: 100%;
+    width: 100%;
 }
 
 .cc-editor-slider {
-  -webkit-appearance: none;
-  height: 1px;
-  background: var(--accent);
-  outline: none;
-  position: relative;
-  margin-left: 0px;
+    -webkit-appearance: none;
+    height: 1px;
+    background: var(--accent);
+    outline: none;
+    position: relative;
+    margin-left: 0px;
 }
 
 .cc-editor-slider::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 10px;
-  height: 25px;
-  background: var(--accent);
-  cursor: pointer;
+    -webkit-appearance: none;
+    appearance: none;
+    width: 10px;
+    height: 25px;
+    background: var(--accent);
+    cursor: pointer;
 }
 
 /* SWITCH INPUT */
 
 /* Slideshow container */
 .cc-editor-slide-container {
-  position: relative;
-  width: 50%;
+    position: relative;
+    width: 50%;
 }
 
 /* Slides */
 .cc-editor-item-slide {
-  display: none;
-  padding: 0 10px;
-  text-align: center;
+    display: none;
+    padding: 0 10px;
+    text-align: center;
 }
 
-.cc-editor-item-slide-1, .cc-editor-item-slide-2, .cc-editor-item-slide-3, .cc-editor-item-slide-4, .cc-editor-item-slide-5 {
-  display: none;
-  padding: 0 10px;
-  text-align: center;
+.cc-editor-item-slide-1,
+.cc-editor-item-slide-2,
+.cc-editor-item-slide-3,
+.cc-editor-item-slide-4,
+.cc-editor-item-slide-5 {
+    display: none;
+    padding: 0 10px;
+    text-align: center;
 }
 
 
 /* Next & previous buttons */
-.prev, .next {
-  cursor: pointer;
-  position: absolute;
-  top: 50%;
-  width: auto;
-  margin-top: -19px;
-  padding: 6px;
-  color: var(--accent);
-  font-weight: bold;
-  font-size: 15px;
-  border-radius: 0 3px 3px 0;
-  user-select: none;
+.prev,
+.next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    margin-top: -19px;
+    padding: 6px;
+    color: var(--accent);
+    font-weight: bold;
+    font-size: 15px;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
 }
 
 /* Position the "next button" to the right */
 .next {
-  position: absolute;
-  right: 0;
-  border-radius: 3px 0 0 3px;
+    position: absolute;
+    right: 0;
+    border-radius: 3px 0 0 3px;
 }
 
 
@@ -243,37 +250,86 @@ p {
 .cc-editor-colortab-2 {
     display: block;
     width: 50%;
-  
-  }
-  
-  .cc-editor-colortab {
+
+}
+
+.cc-editor-colortab {
     width: 100%;
     display: flex;
     justify-content: space-between;
     margin-bottom: 3%;
-  }
-  
-  .cc-editor-colorbox {
+}
+
+.cc-editor-colorbox {
     width: 13%;
     padding-top: 13%;
     border: 1px solid var(--accent);
-  }
+}
 
 
 /* BUTTONS BOTTOM */
 
 .cc-editor-buttons {
-  display: flex;
-  justify-content: space-between;
-  height: 60px;
-  line-height: 60px;
+    display: flex;
+    justify-content: space-between;
+    height: 60px;
+    line-height: 60px;
 }
 
 .cc-editor-button {
-  width: 32%;
-  height: 100%;
-  border: 1px solid var(--accent);
-  text-align: center;
-  display: flex;
-  justify-content: center;
+    width: 32%;
+    height: 100%;
+    border: 1px solid var(--accent);
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+/* Tooltip container */
+.tooltip {
+    position: relative;
+    display: inline-block;
+    padding: 0 5px;
+    margin: 0 5px;
+    border: 1px solid var(--accent);
+}
+
+/* Tooltip text */
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: var(--base);
+    color: var(--accent);
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+
+    /* Position the tooltip text */
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -60px;
+
+    /* Fade in tooltip */
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+/* Tooltip arrow */
+.tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: var(--accent) transparent transparent transparent;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
 }

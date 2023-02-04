@@ -256,8 +256,6 @@ p {
   .cc-editor-colorbox {
     width: 13%;
     padding-top: 13%;
-    background-image: aliceblue;
-    background-image: url("./farben/svg/farbe1.svg");
     border: 1px solid var(--accent);
   }
 

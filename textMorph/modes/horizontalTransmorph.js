@@ -205,6 +205,8 @@ class HorizontalTransMorph extends TransMorph {
                 proceedingTextWidth += HorizontalTransMorph.nextX();
             }
             currentChar = 0;
+            proceedingTextWidth += fontSizeFactor/4 * 0.5/letterSpacing * textWidth(printText[printText.length - 1]);
+            //x = width - 1/letterSpacing * fontSizeFactor/3.8 * spacingFactor - proceedingTextWidth;
             x = width - proceedingTextWidth;
             y = getNextY();
         }

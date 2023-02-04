@@ -10,5 +10,6 @@ function getNextY() {
 
 function finishDrawing() {
     drawingActive = false;
+    startDrawingButton.removeClass("active");
     //hideLoadingMessage();
 }

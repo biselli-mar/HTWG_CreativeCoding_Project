@@ -229,15 +229,15 @@ function initializeUI() {
     });
 }
 
-function showLoadingMessage() {
-    loadingText.style("display", "block");
-    startDrawingButton.addClass("active");
-}
-
-function hideLoadingMessage() {
-    loadingText.style("display", "none");
-    startDrawingButton.removeClass("active");
-}
+//function showLoadingMessage() {
+//    loadingText.style("display", "block");
+//    startDrawingButton.addClass("active");
+//}
+//
+//function hideLoadingMessage() {
+//    loadingText.style("display", "none");
+//    startDrawingButton.removeClass("active");
+//}
 
 function activateSaveButton() {
     saveButton.addClass("active");

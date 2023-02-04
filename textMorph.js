@@ -214,3 +214,11 @@ function downloadCanvas() {
     pixelDensity(1);
     deactivateSaveButton();
 }
+
+// ========== Input Handling ===========
+function keyReleased() {
+    if (!key.match(validTextInputRegex)) {
+        alert("Only alphanumerical characters, spaces and punctuation are allowed.");
+        textInput.value(textInput.value().replace(key, '')); // remove the invalid character
+    }
+}

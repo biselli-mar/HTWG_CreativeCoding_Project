@@ -71,6 +71,8 @@ let paths = {};
 
 let SPACE = " ";
 
+let validTextInputRegex = /[a-z0-9!"$%&/()=?*'_:;,\.\-#+~\\\{\}\[\]<> ]/i;
+
 // ======== UI Vars ========
 let lerpGrowthSlider;
 let letterSpacingSlider;

@@ -13,51 +13,52 @@ class Noise extends AnimationMode {
 
     static setupUI() {
         select("#infotext-noise").style("display", "block");
+        alphaMaxSlider.parent().parentElement.style.display = "none";
+        letterSpacingSlider.parent().parentElement.style.display = "none";
+        lineSpacingSlider.parent().parentElement.style.display = "none";
+        lineWidthSlider.parent().parentElement.style.display = "none";
     }
-
+    
     static unloadUI() {
         select("#infotext-noise").style("display", "none");
+        alphaMaxSlider.parent().parentElement.style.display = "";
+        letterSpacingSlider.parent().parentElement.style.display = "";
+        lineSpacingSlider.parent().parentElement.style.display = "";
+        lineWidthSlider.parent().parentElement.style.display = "";
     }
 
     static setup() {
-        background(backgroundColor);
+        //background(backgroundColor);
         stroke(accentColor);
         randomSeed(random(100000));
-        if (pathCount == undefined || fontChanged) {
-            let firstLetter_path = font().textToPoints('G', 0, 0, fontSize, {
+
+        for (let i = 0; i < lines.length; i++) {
+            let path = font().textToPoints(lines[i], 0, 0, fontSize, {
                 sampleFactor: firstLetterFontSampleFactor
             });
-            pathCount = firstLetter_path.length;
+            paths["NOISE_MODE_" + i] = path;
         }
 
-        for (aline of lines) {
-            for (achar of aline) {
-                if ((!(achar in paths) || (achar in paths && paths[achar].length != pathCount) || fontChanged)
-                    && achar != SPACE && achar != "\n") {
-                    let fontSampleFactor = firstLetterFontSampleFactor;
-                    let path = font().textToPoints(achar, 0, 0, fontSize, {
-                        sampleFactor: firstLetterFontSampleFactor
-                    });
-                    while (path.length != pathCount) {
-                        fontSampleFactor *= pathCount / path.length;
-                        path = font().textToPoints(achar, 0, 0, fontSize, {
-                            sampleFactor: fontSampleFactor
-                        });
-                    }
-                    paths[achar] = path;
-                }
+        let textW = textWidth(printText[0]);
+        let textH = textAscent() + textDescent();
+
+        // noiseMode vars
+        noiseScale = 20;
+        noiseCols = floor(width / noiseScale);
+        noiseRows = floor(height / noiseScale);
+
+        flowfield = new Array(noiseCols * noiseRows);
+        for (let line = 0; line < lines.length; line++) {
+            let path = paths["NOISE_MODE_" + line];
+            for (let i = 0; i < path.length; i++) {
+                let pos = path[i];
+                noiseParticles[i] = new Particle(pos.x + textW, pos.y + textH * (line + 1));
             }
         }
     }
 }
 
 function Particle(x, y) {
-    //this.pos = createVector(random(width), random(height));
-    /*
-    for (let i = 0; i < 360; i++) {
-      this.pos = createVector(10, 20);
-    }
-    */
     this.pos = createVector(x, y);
     this.vel = createVector(0, 0);
     this.acc = createVector(0, 0);
@@ -73,9 +74,9 @@ function Particle(x, y) {
     }
     
     this.follow = function(vectors) {
-      let x = floor(this.pos.x / scl);
-      let y = floor(this.pos.y / scl);
-      let index = x + y * cols; 
+      let x = floor(this.pos.x / noiseScale);
+      let y = floor(this.pos.y / noiseScale);
+      let index = x + y * noiseCols; 
       let force = vectors[index];
       this.applyForce(force);
     }
@@ -85,7 +86,7 @@ function Particle(x, y) {
     }
     
     this.show = function() {
-      stroke(105, 162, 151, colorOpacity);
+      stroke(105, 162, 151, noiseOpacity);
       //stroke('#ffffff11');
       //stroke(0, 5);
       strokeWeight(1);

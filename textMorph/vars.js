@@ -49,6 +49,14 @@ const shapeEvolveCap = 10;
 const shapeEvolveGain = 0.2;
 let shapeEvolveProgress = 5;
 
+// noiseMode vars
+let noiseScale = 20;
+let noiseCols, noiseRows;
+let noiseZoff = 0;
+let flowfield;
+let noiseParticles = [];
+let noiseIncrement = 0.15;
+let noiseOpacity = 30;
 
 // ======== Text Vars ========
 let printText = "Creative\nCoding";

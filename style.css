@@ -1,3 +1,27 @@
+@font-face {
+
+    font-family: 'SpaceMono-Regular';
+
+    src: url('./fonts/SpaceMono-Regular.ttf') format('truetype');
+
+    font-weight: normal;
+
+    font-style: normal;
+
+}
+
+@font-face {
+
+    font-family: 'SpaceMono-Bold';
+
+    src: url('./fonts/SpaceMono-Bold.ttf') format('truetype');
+
+    font-weight: bold;
+
+    font-style: bold;
+
+}
+
 :root {
     --base: #000;
     --accent: #fff;

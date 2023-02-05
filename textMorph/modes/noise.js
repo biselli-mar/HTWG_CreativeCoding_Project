@@ -21,7 +21,7 @@ class Noise extends AnimationMode {
         lineWidthSlider.parent().parentElement.style.display = "none";
 
     }
-    
+
     static unloadUI() {
         select("#infotext-noise").style("display", "none");
         select("#mode-specific-param-head").style("display", "none");
@@ -68,42 +68,43 @@ function Particle(x, y) {
     this.vel = createVector(0, 0);
     this.acc = createVector(0, 0);
     this.maxspeed = 0.2;
-    
+
     this.prevPos = this.pos.copy();
-    
-    this.update = function() {
-      this.vel.add(this.acc);
-      this.vel.limit(this.maxspeed);
-      this.pos.add(this.vel);
-      this.acc.mult(0);
+
+    this.update = function () {
+        this.vel.add(this.acc);
+        this.vel.limit(this.maxspeed);
+        this.pos.add(this.vel);
+        this.acc.mult(0);
     }
-    
-    this.follow = function(vectors) {
-      let x = floor(this.pos.x / noiseScale);
-      let y = floor(this.pos.y / noiseScale);
-      let index = x + y * noiseCols; 
-      let force = vectors[index];
-      this.applyForce(force);
+
+    this.follow = function (vectors) {
+        let x = floor(this.pos.x / noiseScale);
+        let y = floor(this.pos.y / noiseScale);
+        let index = x + y * noiseCols;
+        let force = vectors[index];
+        this.applyForce(force);
     }
-    
-    this.applyForce= function(force) {
-      this.acc.add(force);
+
+    this.applyForce = function (force) {
+        this.acc.add(force);
     }
-    
-    this.show = function() {
-      stroke(105, 162, 151, noiseOpacity);
-      //stroke('#ffffff11');
-      //stroke(0, 5);
-      strokeWeight(1);
-      line(this.pos.x, this.pos.y, this.prevPos.x, this.prevPos.y);
-      this.updatePrev();
-      point(this.pos.x, this.pos.y);
+
+    this.show = function () {
+        let tempCol = color(accentColor);
+        tempCol.setAlpha(noiseOpacity);
+        stroke(tempCol);
+        //stroke('#ffffff11');
+        //stroke(0, 5);
+        strokeWeight(1);
+        line(this.pos.x, this.pos.y, this.prevPos.x, this.prevPos.y);
+        this.updatePrev();
+        point(this.pos.x, this.pos.y);
     }
-    
-    this.updatePrev = function() {
+
+    this.updatePrev = function () {
         this.prevPos.y = this.pos.y;
         this.prevPos.x = this.pos.x;
     }
-  }
-  
-  
+}
+

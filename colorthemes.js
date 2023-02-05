@@ -53,8 +53,8 @@ let colorThemeMap = {
         accent: "#4C2E05"
     },
     veryOrange: {
-        base: "#F34213",
-        accent: "#FAE1DF"
+        base: "#fff",
+        accent: "#db1f11"
     },
     minty: {
         base: "#5C946E",

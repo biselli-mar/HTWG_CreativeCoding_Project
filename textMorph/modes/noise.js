@@ -91,9 +91,12 @@ function Particle(x, y) {
     }
     
     this.show = function() {
-      stroke(105, 162, 151, noiseOpacity);
+      //stroke(105, 162, 151, noiseOpacity);
       //stroke('#ffffff11');
       //stroke(0, 5);
+      //stroke(219, 31, 17, noiseOpacity);
+      stroke(50, 50, 50, noiseOpacity);
+
       strokeWeight(1);
       line(this.pos.x, this.pos.y, this.prevPos.x, this.prevPos.y);
       this.updatePrev();

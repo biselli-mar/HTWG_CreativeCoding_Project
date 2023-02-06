@@ -33,6 +33,7 @@ body {
     padding: 0;
     background-color: var(--base);
     overflow-x: hidden;
+    overflow-y: hidden;
     color: var(--accent);
     font-family: SpaceMono-Regular;
 }
@@ -70,11 +71,13 @@ p {
 }
 
 .cc-container-editor {
+    z-index: 1;
     width: 32%;
     height: 100%;
 }
 
 .cc-container-canvas {
+    z-index: 0;
     border: 1px solid var(--accent);
     margin-left: 10px;
     width: 68%;
@@ -109,10 +112,12 @@ p {
 }
 
 .cc-editor-panel {
+    z-index: 1;
     border: 1px solid var(--accent);
     height: calc(100VH - 40px - 120px - 20px - 2px);
     margin: 10px 0;
-    overflow-x: scroll;
+    overflow-x: hidden;
+    overflow-y: scroll;
 }
 
 .cc-editor-head {
@@ -129,6 +134,8 @@ p {
 
 .cc-editor-item {
     display: flex;
+    position: relative;
+    z-index: 3;
     justify-content: space-between;
     padding: 0 20px;
     margin: 15px 0;
@@ -310,38 +317,57 @@ p {
 }
 
 /* Tooltip container */
-.tooltip {
-    position: relative;
+.tooltip-container {
+    display: none;
+    position: absolute;
+    z-index: 2;
+    width: 0px;
     display: inline-block;
-    padding: 0 5px;
-    margin: 0 5px;
+    padding: 0 0px;
+}
+
+.tooltip {
+    display: grid;
+    width: 100%;
+    background-color: var(--base);
     border: 1px solid var(--accent);
+}
+
+.tooltip .cc-editor-head {
+    display: block;
+    position: relative;
+    pointer-events: none;
+    width: 100%;
+    z-index: 2;
+    padding: 0
 }
 
 /* Tooltip text */
 .tooltip .tooltiptext {
-    visibility: hidden;
-    width: 120px;
-    background-color: var(--base);
+    display: flex;
+    width: 100%;
     color: var(--accent);
     text-align: center;
-    padding: 5px 0;
-    border-radius: 6px;
+    pointer-events: none;
 
     /* Position the tooltip text */
-    position: absolute;
-    z-index: 1;
-    bottom: 125%;
-    left: 50%;
-    margin-left: -60px;
+    position: relative;
+    z-index: 2;
+}
 
-    /* Fade in tooltip */
-    opacity: 0;
-    transition: opacity 0.3s;
+.tooltip-container .tooltip::after {
+    content: "";
+    position: absolute;
+    pointer-events: none;
+    top: -2px;
+    left: -36px;
+    border-width: 18px;
+    border-style: solid;
+    border-color: transparent var(--accent) transparent transparent;
 }
 
 /* Tooltip arrow */
-.tooltip .tooltiptext::after {
+/*.tooltip .tooltiptext::after {
     content: "";
     position: absolute;
     top: 100%;
@@ -350,10 +376,10 @@ p {
     border-width: 5px;
     border-style: solid;
     border-color: var(--accent) transparent transparent transparent;
-}
+}*/
 
 /* Show the tooltip text when you mouse over the tooltip container */
-.tooltip:hover .tooltiptext {
+/*.tooltip:hover .tooltiptext {
     visibility: visible;
     opacity: 1;
-}
+}*/

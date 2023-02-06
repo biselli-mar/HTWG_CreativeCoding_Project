@@ -75,20 +75,31 @@ let validTextInputRegex = /[a-z0-9!"$%&/()=?*'_:;,\.\-#+~\\\{\}\[\]<> ]/i;
 
 // ======== UI Vars ========
 let lerpGrowthSlider;
+let lerpGrowthTooltip;
 let letterSpacingSlider;
+let letterSpacingTooltip;
 let lineSpacingSlider;
+let lineSpacingTooltip;
 let lineWidthSlider;
+let lineWidthTooltip;
 let alphaFadeSlider;
+let alphaFadeTooltip;
 let alphaMaxSlider;
-let alphaMinSlider;
+let alphaMaxTooltip;
+
 let fontSizeSlider;
+let fontSizeTooltip;
+
 let shapeEvolveProgressSlider;
 let noiseOpacityFalloffSlider;
+let noiseOpacityFalloffTooltip;
 let letterNoiseSlider;
+let letterNoiseTooltip;
 
 let fontSelect;
+let fontTooltip;
 let textAlignSelect;
-let textOrientationSelect;
+let textAlignTooltip;
 let themeSelect;
 
 let startDrawingButton;

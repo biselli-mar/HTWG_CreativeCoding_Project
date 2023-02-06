@@ -23,6 +23,94 @@
 
 <body class="cc-main-body">
   <div class="cc-container-main">
+    <div class="tooltip-container" id="fontTooltip" style="display: none">
+      <div class="tooltip">
+        <div class="cc-editor-head">
+          <h2>What does Font do?</h2>
+        </div>
+        <span class="tooltiptext">Text will be drawn with the font you choose here.</span>
+      </div>
+    </div>
+    <div class="tooltip-container" id="fontSizeTooltip" style="display: none">
+      <div class="tooltip">
+        <div class="cc-editor-head">
+          <h2>What does Font size do?</h2>
+        </div>
+        <span class="tooltiptext">Controls the size of the text on the canvas.</span>
+      </div>
+    </div>
+    <div class="tooltip-container" id="textAlignTooltip" style="display: none">
+      <div class="tooltip">
+        <div class="cc-editor-head">
+          <h2>What does Text align do?</h2>
+        </div>
+        <span class="tooltiptext">Text will be aligned to the left, center or right of the canvas.</span>
+      </div>
+    </div>
+    <div class="tooltip-container" id="letterSpacingTooltip" style="display: none">
+      <div class="tooltip">
+        <div class="cc-editor-head">
+          <h2>What does Letter spacing do?</h2>
+        </div>
+        <span class="tooltiptext">Controls the distance between individual letters.</span>
+      </div>
+    </div>
+    <div class="tooltip-container" id="lineSpacingTooltip" style="display: none">
+      <div class="tooltip">
+        <div class="cc-editor-head">
+          <h2>What does Line spacing do?</h2>
+        </div>
+        <span class="tooltiptext">Controls the distance between lines of letters that are seperated by a newline character.</span>
+      </div>
+    </div>
+    <div class="tooltip-container" id="lineWidthTooltip" style="display: none">
+      <div class="tooltip">
+        <div class="cc-editor-head">
+          <h2>What does Outline weight do?</h2>
+        </div>
+        <span class="tooltiptext">Controls the weight/radius/width of lines used to draw the outline of letters.</span>
+      </div>
+    </div>
+    <div class="tooltip-container" id="alphaMaxTooltip" style="display: none">
+      <div class="tooltip">
+        <div class="cc-editor-head">
+          <h2>What does Opacity font do?</h2>
+        </div>
+        <span class="tooltiptext">Sets the maximum/base alpha (opacity) value of the morph lines placed between letters.</span>
+      </div>
+    </div>
+    <div class="tooltip-container" id="alphaFadeTooltip" style="display: none">
+      <div class="tooltip">
+        <div class="cc-editor-head">
+          <h2>What does Opacity variation do?</h2>
+        </div>
+        <span class="tooltiptext">Alpha (Opacity) decreases towards the middle of morphing and increases thereafter. Higher variation speeds this up.</span>
+      </div>
+    </div>
+    <div class="tooltip-container" id="lerpGrowthTooltip" style="display: none">
+      <div class="tooltip">
+        <div class="cc-editor-head">
+          <h2>What does Amount lines do?</h2>
+        </div>
+        <span class="tooltiptext">Determines the number of morph steps between each letter.</span>
+      </div>
+    </div>
+    <div class="tooltip-container" id="letterNoiseTooltip" style="display: none">
+      <div class="tooltip">
+        <div class="cc-editor-head">
+          <h2>What does Letter randomness do?</h2>
+        </div>
+        <span class="tooltiptext">Displaces the points that make up the letters by a random value.</span>
+      </div>
+    </div>
+    <div class="tooltip-container" id="noiseOpacityFalloffTooltip" style="display: none">
+      <div class="tooltip">
+        <div class="cc-editor-head">
+          <h2>What does Opacity falloff do?</h2>
+        </div>
+        <span class="tooltiptext">In Noise mode, drawing continues while the opacity of drawn lines keeps decreasing until it reaches zero. Higher falloff lets the drawing reach that end quicker.</span>
+      </div>
+    </div>
     <div class="cc-container-editor">
       <div class="cc-editor-menu">
         <div class="cc-editor-menu-item active" onclick="setMode('Textmode', this)">
@@ -474,10 +562,7 @@
 
     <div class="cc-container-canvas">
       <div id="canvasForHTML"></div>
-
-
     </div>
-
   </div>
 
   <script src="textMorph/vars.js"></script>

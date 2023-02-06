@@ -173,6 +173,27 @@ function checkAnimationMode() {
 }
 //---
 
+function initTooltipSlider(elem, tooltip, tooltipId) {
+    tooltip = select(tooltipId);
+    setupTooltip(elem.elt.parentElement.parentElement, tooltip);
+    elem.mouseOver(() => { setupTooltip(elem.elt.parentElement.parentElement, tooltip); tooltip.style("display", "flex"); });
+    elem.mouseOut(() => { tooltip.hide(); });
+}
+
+function initTooltipSelect(elem, tooltip, tooltipId) {
+    tooltip = select(tooltipId);
+    setupTooltip(elem.element.elt.parentElement, tooltip);
+    elem.element.mouseOver(() => { setupTooltip(elem.element.elt.parentElement, tooltip); tooltip.style("display", "flex");});
+    elem.element.mouseOut(() => { tooltip.hide(); });
+}
+
+function setupTooltip(element, tooltip) {
+    let offset = element.getBoundingClientRect();
+    tooltip.position(offset.left + element.offsetWidth + 29, offset.top - 5);
+    tooltip.style("width", str(element.offsetWidth / 2) + "px");
+    tooltip.hide();
+}
+
 function initializeUI() {
     SlideSelect.slideSetup();
 
@@ -182,24 +203,31 @@ function initializeUI() {
     fontSizeSlider = select("#fontSizeSlider");
     fontSizeSlider.changed(() => { fontChanged = true; });
     fontSizeSlider.value(1);
+    initTooltipSlider(fontSizeSlider, fontSizeTooltip, "#fontSizeTooltip");
 
     lineWidthSlider = select("#lineWidthSlider");
     lineWidthSlider.value(1);
+    initTooltipSlider(lineWidthSlider, lineWidthTooltip, "#lineWidthTooltip");
 
     lerpGrowthSlider = select("#lerpGrowthSlider");
     lerpGrowthSlider.value(4.7);
+    initTooltipSlider(lerpGrowthSlider, lerpGrowthTooltip, "#lerpGrowthTooltip");
 
     letterSpacingSlider = select("#letterSpacingSlider");
     letterSpacingSlider.value(0.5);
+    initTooltipSlider(letterSpacingSlider, letterSpacingTooltip, "#letterSpacingTooltip");
 
     lineSpacingSlider = select("#lineSpacingSlider");
     lineSpacingSlider.value(1);
+    initTooltipSlider(lineSpacingSlider, lineSpacingTooltip, "#lineSpacingTooltip");
 
     alphaFadeSlider = select("#alphaFadeSlider");
     alphaFadeSlider.value(0.9);
+    initTooltipSlider(alphaFadeSlider, alphaFadeTooltip, "#alphaFadeTooltip");
 
     alphaMaxSlider = select("#alphaMaxSlider");
     alphaMaxSlider.value(170);
+    initTooltipSlider(alphaMaxSlider, alphaMaxTooltip, "#alphaMaxTooltip");
 
     shapeEvolveProgressSlider = select("#shapeEvolveProgressSlider");
     shapeEvolveProgressSlider.value(5);
@@ -209,14 +237,19 @@ function initializeUI() {
 
     letterNoiseSlider = select("#letterNoiseSlider");
     letterNoiseSlider.value(0);
+    initTooltipSlider(letterNoiseSlider, letterNoiseTooltip, "#letterNoiseTooltip");
 
     noiseOpacityFalloffSlider = select("#noiseOpacityFalloffSlider");
     noiseOpacityFalloffSlider.value(1);
+    initTooltipSlider(noiseOpacityFalloffSlider, noiseOpacityFalloffTooltip, "#noiseOpacityFalloffTooltip");
 
     fontSelect = SlideSelect.getSelector("fontSelect");
     fontSelect.element.mouseClicked(() => { fontChanged = true; });
+    initTooltipSelect(fontSelect, fontTooltip, "#fontTooltip");
+
     textAlignSelect = SlideSelect.getSelector("textAlignSelect");
-    textOrientationSelect = SlideSelect.getSelector("textOrientationSelect");
+    initTooltipSelect(textAlignSelect, textAlignTooltip, "#textAlignTooltip");
+
     themeSelect = SlideSelect.getSelector("themeSelect");
 
     startDrawingButton = select("#startButton");

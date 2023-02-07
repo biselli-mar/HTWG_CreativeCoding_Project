@@ -33,7 +33,6 @@ class Noise extends AnimationMode {
     }
 
     static setup() {
-        //background(backgroundColor);
         stroke(accentColor);
 
         let textW = textWidth(printText[0]);

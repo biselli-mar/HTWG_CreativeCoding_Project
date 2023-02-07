@@ -183,7 +183,7 @@ function initTooltipSlider(elem, tooltip, tooltipId) {
 function initTooltipSelect(elem, tooltip, tooltipId) {
     tooltip = select(tooltipId);
     setupTooltip(elem.element.elt.parentElement, tooltip);
-    elem.element.mouseOver(() => { setupTooltip(elem.element.elt.parentElement, tooltip); tooltip.style("display", "flex");});
+    elem.element.mouseOver(() => { setupTooltip(elem.element.elt.parentElement, tooltip); tooltip.style("display", "flex"); });
     elem.element.mouseOut(() => { tooltip.hide(); });
 }
 

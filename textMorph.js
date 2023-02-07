@@ -94,7 +94,6 @@ function setup() {
     divHeight = document.getElementById("canvasForHTML").offsetHeight;
     resizeCanvas(divWidth, divHeight);
 
-    //background(backgroundColor);
     stroke(accentColor);
 }
 

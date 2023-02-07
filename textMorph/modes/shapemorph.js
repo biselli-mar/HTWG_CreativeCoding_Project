@@ -31,7 +31,6 @@ class ShapeMorph extends AnimationMode {
     }
 
     static setup() {
-        //background(backgroundColor);
         let tempColor = color(accentColor);
         tempColor.setAlpha(alphaMax);
         stroke(tempColor);
@@ -46,7 +45,7 @@ class ShapeMorph extends AnimationMode {
         for (aline of lines) {
             for (achar of aline) {
                 if ((!(achar in paths) || (achar in paths && paths[achar].length != pathCount) || fontChanged)
-                && achar != SPACE && achar != "\n") {
+                    && achar != SPACE && achar != "\n") {
                     let i = 0;
                     let fontSampleFactor = 0.005;
                     let currentFont = font();
@@ -60,6 +59,6 @@ class ShapeMorph extends AnimationMode {
                     }
                 }
             }
-        }    
+        }
     }
 }

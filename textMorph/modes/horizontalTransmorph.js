@@ -1,16 +1,16 @@
 class HorizontalTransMorph extends TransMorph {
     static drawMode = this.LeftBound;
 
-    static nextX(index=currentChar) {
+    static nextX(index = currentChar) {
         return letterSpacing * spacingFactor + letterSpacing * textWidth(printText[index]);
     }
-    
+
     static draw() { }; // This is a function pointer
 
     static setup() {
         super.readParams();
 
-        spacingFactor = height/6;
+        spacingFactor = height / 6;
 
         fontSize = int(height / 5);
         textAlign(LEFT);
@@ -72,7 +72,7 @@ class HorizontalTransMorph extends TransMorph {
             x = 0;
             y = getNextY();
         }
-    
+
         static draw() {
             if (lerpAmount >= 1) {
                 if (currentChar == printText.length - 2) {
@@ -145,7 +145,7 @@ class HorizontalTransMorph extends TransMorph {
             x = width / 2 - proceedingTextWidth;
             y = getNextY();
         }
-    
+
         static draw() {
             if (lerpAmount > 1) {
                 if (currentChar == printText.length - 2) {
@@ -205,8 +205,7 @@ class HorizontalTransMorph extends TransMorph {
                 proceedingTextWidth += HorizontalTransMorph.nextX();
             }
             currentChar = 0;
-            proceedingTextWidth += fontSizeFactor/4 * 0.5/letterSpacing * textWidth(printText[printText.length - 1]);
-            //x = width - 1/letterSpacing * fontSizeFactor/3.8 * spacingFactor - proceedingTextWidth;
+            proceedingTextWidth += fontSizeFactor / 4 * 0.5 / letterSpacing * textWidth(printText[printText.length - 1]);
             x = width - proceedingTextWidth;
             y = getNextY();
         }

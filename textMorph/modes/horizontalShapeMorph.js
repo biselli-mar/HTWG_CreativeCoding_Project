@@ -1,7 +1,7 @@
 class HorizontalShapeMorph extends ShapeMorph {
     static drawMode = this.LeftBound;
 
-    static nextX(index=currentChar) {
+    static nextX(index = currentChar) {
         return letterSpacing * spacingFactor + letterSpacing * textWidth(printText[index]);
     }
 
@@ -10,7 +10,7 @@ class HorizontalShapeMorph extends ShapeMorph {
     static setup() {
         super.readParams();
 
-        spacingFactor = height/6;
+        spacingFactor = height / 6;
 
         fontSize = int(height / 5);
         textAlign(LEFT);
@@ -71,7 +71,7 @@ class HorizontalShapeMorph extends ShapeMorph {
             x = 0;
             y = getNextY();
         }
-    
+
         static draw() {
             if (currentChar == printText.length - 1) {
                 drawLetter(
@@ -125,7 +125,7 @@ class HorizontalShapeMorph extends ShapeMorph {
             x = width / 2 - proceedingTextWidth;
             y = getNextY();
         }
-    
+
         static draw() {
             if (currentChar == printText.length - 1) {
                 drawLetter(
@@ -142,7 +142,7 @@ class HorizontalShapeMorph extends ShapeMorph {
             } else {
                 prevX = x;
             }
-            
+
             if (currentChar > 0) {
                 x = prevX + this.nextX(currentChar - 1);
             }
@@ -171,7 +171,7 @@ class HorizontalShapeMorph extends ShapeMorph {
             x = width - proceedingTextWidth;
             y = getNextY();
         }
-    
+
         static draw() {
             if (currentChar == printText.length - 1) {
                 drawLetter(

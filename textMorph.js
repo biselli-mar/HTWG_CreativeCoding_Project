@@ -46,16 +46,6 @@ function setup() {
     accentColor = color(colorStyle.color);
     accentColor.setAlpha(255);
 
-    loadingText = createP("Drawing...");
-    loadingText.style("display", "none");
-    loadingText.parent("canvasForHTML");
-    loadingText.style("color", accentColor);
-    loadingText.style("font-size", "2em");
-    loadingText.style("position", "absolute");
-    loadingText.style("top", "50%");
-    loadingText.style("left", "50%");
-    loadingText.style("transform", "translate(-50%, -50%)");
-
     // =========== Text Setup ============
     // Initialize the textSize, textAlign and pathCount for specific mode
     animationMode.setup();

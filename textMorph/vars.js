@@ -12,8 +12,6 @@ let pathCount = undefined;
 // ======== Animation Vars ========
 var canvas;
 
-let loadingText;
-
 let colorStyle;
 let backgroundColor;
 let accentColor;

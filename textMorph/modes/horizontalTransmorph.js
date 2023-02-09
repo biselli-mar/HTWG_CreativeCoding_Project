@@ -18,7 +18,7 @@ class HorizontalTransMorph extends TransMorph {
         textFont(font());
 
         // split the text into lines
-        lines = textInput.value().split("\n");
+        lines = textInput.value().split("\n").map(s => s.trim());
         // filter out empty lines
         lines = lines.filter(line => line.length > 0);
 

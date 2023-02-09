@@ -187,12 +187,13 @@ function drawLetter(letter, x, y) {
 }
 
 function downloadCanvas() {
-    let resolutionFactor = int(prompt("Enter the desired width of the exported image in pixels.\nNOTE! that extremely large resolutions (20.000 pixels or more) might crash your browser", str(divWidth * 8)));
+    let resolutionFactor = int(prompt("Enter the desired width of the exported image in pixels.\nNOTE! that extremely large resolutions (20.000 pixels or more) might crash your browser", str(divWidth * prevResolutionFactor)));
     if (resolutionFactor == null) {
         deactivateSaveButton();
         return;
     }
     resolutionFactor = ceil(resolutionFactor / divWidth);
+    prevResolutionFactor = resolutionFactor;
     saveCanvas('CC-project-textMorph_lowRes_' + year() + day() + '-' + hour() + '-' + minute() + '-' + second(), 'png');
     let prevPixelDensity = pixelDensity();
     push();

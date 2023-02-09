@@ -43,7 +43,7 @@ let drawVertical = false;
 let fontSizeFactor = 1;
 let font;
 let themeColor;
-let prevResolutionFactor = 10;
+let prevResolution = undefined;
 
 // shapeMode evolution progress
 const shapeEvolveCap = 10;

@@ -18,7 +18,7 @@ class HorizontalShapeMorph extends ShapeMorph {
         textFont(font());
 
         // split the text into lines
-        lines = textInput.value().split("\n");
+        lines = textInput.value().split("\n").map(s => s.trim());
         // filter out empty lines
         lines = lines.filter(line => line.length > 0);
 
@@ -93,10 +93,10 @@ class HorizontalShapeMorph extends ShapeMorph {
             }
             drawLetter(printText[currentChar] + str(shapeEvolveProgress), x, y);
             if (printText[currentChar + 1] == SPACE) {
-                prevX = x - 0.5 * textWidth(SPACE);
+                x += textWidth('A');
                 currentChar++
-                while (printText[currentChar] == SPACE) {
-                    prevX += textWidth(SPACE);
+                while (printText[currentChar + 1] == SPACE) {
+                    x += textWidth('A');
                     currentChar++;
                 }
             }
@@ -148,10 +148,10 @@ class HorizontalShapeMorph extends ShapeMorph {
             }
             drawLetter(printText[currentChar] + str(shapeEvolveProgress), x, y);
             if (printText[currentChar + 1] == SPACE) {
-                prevX = x - 0.5 * textWidth(SPACE);
+                x += textWidth('A');
                 currentChar++
-                while (printText[currentChar] == SPACE) {
-                    prevX += textWidth(SPACE);
+                while (printText[currentChar + 1] == SPACE) {
+                    x += textWidth('A');
                     currentChar++;
                 }
             }
@@ -193,10 +193,10 @@ class HorizontalShapeMorph extends ShapeMorph {
             }
             drawLetter(printText[currentChar] + str(shapeEvolveProgress), x, y);
             if (printText[currentChar + 1] == SPACE) {
-                prevX = x - 0.5 * textWidth(SPACE);
+                x += textWidth('A');
                 currentChar++
-                while (printText[currentChar] == SPACE) {
-                    prevX += textWidth(SPACE);
+                while (printText[currentChar + 1] == SPACE) {
+                    x += textWidth('A');
                     currentChar++;
                 }
             }

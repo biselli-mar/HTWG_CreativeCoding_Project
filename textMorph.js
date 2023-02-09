@@ -14,10 +14,6 @@
 let divWidth;
 let divHeight;
 
-let offset = 400;
-var textContent = "a";
-let timeCount = 0;
-
 function preload() {
     for (let f of fontPool) {
         loadedFonts[f] = loadFont("/fonts/" + f + ".ttf");

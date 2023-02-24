@@ -120,6 +120,15 @@ p {
     overflow-y: scroll;
 }
 
+.cc-editor-panel::-webkit-scrollbar {
+    display: none;
+}
+
+.cc-editor-panel {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+
 .cc-editor-head {
     height: 30px;
     line-height: 30px;
